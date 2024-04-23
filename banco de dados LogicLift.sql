@@ -8,13 +8,6 @@ CREATE TABLE usuarios(
     senha VARCHAR(255) 
 );
 
-INSERT INTO usuarios (nome, email, senha)
-VALUES ('Pedro Hentique de Bortoli', 'bortolipedroh@gmail.com', 'pedroreidelas'),
-('Diego Gutterres Figueredo', 'diegogutterres@yahoo.com', 'didireidomorro'),
-('Bernardo Maccari Perini', 'bernardoreidelas@icloud.com', '1234567890');
-
-SELECT * FROM usuarios;
-
 CREATE TABLE elo_usuario(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	elo ENUM ('ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda')

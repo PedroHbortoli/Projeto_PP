@@ -17,7 +17,7 @@
 /* -------------header------------- */
 
 header {
-    background-color: #FF3936;
+    background-color: none;
     height: 10%;
     width: 100%;
 
@@ -26,32 +26,15 @@ header {
 /* -------------main------------- */
 
 main {
-    background-color: #404040;
+    background-color: none;
     height: 80%;
     width: 100%;
-}
-
-#logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#botao-inicio, #botao-login { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5vh;
-    width: 10vw;
-    border-radius: 20px;
-    color: #ffffff;
-    background-color: #FF3936;
 }
 
 /* -------------footer------------- */
 
 footer {
-    background-color: #FF3936;
+    background-color: none;
     height: 10%;
     width: 100%;
 }
