@@ -5,10 +5,10 @@ async function storeUser(req, res){
     const params = Array(
         req.body.name,
         req.body.email,
-        req.body.senha
+        req.body.password
     );
 
-    const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?, ?, ?)";
+    const query = "INSERT INTO usuarios(nome, email, password) VALUES(?, ?, ?)";
 
     connection.query(query, params, (err, results) => {
         if(results){
