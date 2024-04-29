@@ -2,6 +2,7 @@ let button = document.getElementById("handleSubmit");
 
 button.onclick = async function (event) {
     event.preventDefault();
+    console.log('a')
 
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -10,7 +11,7 @@ button.onclick = async function (event) {
     // criar objeto com os dados
     let data = { name, email, password };
 
-    const response = await fetch("http://localhost:3003/api/store/user", {
+    const response = await fetch("http://localhost:3003/API_LogicLift/store/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

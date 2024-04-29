@@ -8,6 +8,6 @@ const app = express();
 app.set("port", process.env.PORT || 3003);
 app.use(express.json());
 app.use(cors());
-app.use("/API_LogicLift", router);
+app.use("./API_LogicLift/src", router);
 
 module.exports = app;
