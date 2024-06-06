@@ -7,29 +7,44 @@
     <title>LogicLift</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <header>
-        <button>Back</button>
+
+        <button class="back-button">Back</button>
+
     </header>
+
     <main>
-        <div class="cadastro">
-        <h1>Cadastrar</h1>
-        <form>
-            <label for="name"></label>
-            <input type="text" placeholder="Nome do usuário:" id="name" title="name" class="inputs">
 
-            <label for="email"></label>
-            <input type="email" placeholder="Email:" id="email" title="email" class="inputs">
+        <div class="cadastro-conteiner">
 
-            <label for="password"></label>
-            <input type="password" placeholder="Senha:" id="password" title="password" class="inputs">
+            <h1 class="style-text">Cadastrar</h1>
+            <form>
 
-            <button id="handleSubmit" class="joy">Cadastrar</button>
-        </form>
+                <div class="form-group">
+                    <label for="name"></label>
+                    <input type="text" placeholder="Nome do usuário:" id="name" title="name"v>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input type="email" placeholder="Email:" id="email" title="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input type="password" placeholder="Senha:" id="password" title="password">
+                    <button id="show-password">👁️</button>
+                </div>
+
+                <button id="handleSubmit" class="submit-button">Cadastrar</button>
+            </form>
         </div>
     </main>
     <footer>
-       <div></div>
+        <div></div>
     </footer>
     <script src="./script.js"></script>
 </body>

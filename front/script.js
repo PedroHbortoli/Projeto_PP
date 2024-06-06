@@ -26,3 +26,17 @@ button.onclick = async function (event) {
     }
 
 }
+
+let showpassword = document.getElementById("show-password");
+
+showpassword.onclick = function() {
+    let passwordField = document.getElementById("password");
+    let passwordFieldType = passwordField.getAttribute("type");
+    if (passwordFieldType === "password") {
+        passwordField.setAttribute("type", "text");
+    } else {
+        passwordField.setAttribute("type", "password");
+    }
+    
+    return false; 
+};
