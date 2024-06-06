@@ -1,8 +1,6 @@
 let button = document.getElementById("handleSubmit");
 
-button.onclick = async function (event) {
-    event.preventDefault();
-    console.log('a')
+button.onclick = async function () {
 
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -13,7 +11,7 @@ button.onclick = async function (event) {
 
     const response = await fetch("http://localhost:3003/API_LogicLift/store/user", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json=UTF-8" },
         body: JSON.stringify(data)
     });
 
@@ -25,18 +23,5 @@ button.onclick = async function (event) {
         alert("Não")
     }
 
-}
-
-let showpassword = document.getElementById("show-password");
-
-showpassword.onclick = function() {
-    let passwordField = document.getElementById("password");
-    let passwordFieldType = passwordField.getAttribute("type");
-    if (passwordFieldType === "password") {
-        passwordField.setAttribute("type", "text");
-    } else {
-        passwordField.setAttribute("type", "password");
-    }
-    
-    return false; 
 };
+

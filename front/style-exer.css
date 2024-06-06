@@ -82,33 +82,6 @@ main {
     margin-top: 3vw;
 }
 
-.form-group input{
-    background-color: #404040;
-    font-size: 2vh;
-    color: #ffffff;
-    height: 6vh;
-    width: 30vw;
-    border-radius: 5vh;
-    padding-left: 1vw;
-    margin-top: 4vh;
-}
-
-.form-group input::placeholder{
-    font-size: 2vh;
-    color: #ffffff;
-}
-
-.submit-button{
-    background-color: #404040;
-    font-size: 2vh;
-    color: #ffffff;
-    height: 7vh;
-    width: 10vw;
-    border-radius: 20vh;
-    margin: 2vh;
-    margin-top: 3vw;
-}
-
 /* -------------footer------------- */
 
 footer {
