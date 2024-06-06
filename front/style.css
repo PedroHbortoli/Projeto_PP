@@ -44,10 +44,11 @@ main {
     width: 100vw;
 }
 
-.cadastro-conteiner{
+.conteiner{
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     max-width: 40vw;
     margin-bottom: 4vw;
 }
@@ -60,6 +61,17 @@ main {
     margin-bottom: 20px;
 }
 
+
+.button {
+    background-color: #404040;
+    font-size: 2vh;
+    color: #ffffff;
+    height: 7vh;
+    width: 10vw;
+    border-radius: 20vh;
+    margin: 2vh;
+    margin-top: 3vw;
+}
 
 .form-group input{
     background-color: #404040;
