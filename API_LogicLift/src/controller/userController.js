@@ -8,14 +8,16 @@ async function storeUser(req, res){
         req.body.password
     );
 
-    const query = "INSERT INTO usuarios(nome, email, password) VALUES(?, ?, ?)";
+    console.log(req.body)
+
+    const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?, ?, ?)";
 
     connection.query(query, params, (err, results) => {
         if(results){
             res
                 .status(201)
                 .json({
-                    sucess: true,
+                    success: true,
                     message: "Sucess",
                     data: results
                 })
@@ -23,9 +25,9 @@ async function storeUser(req, res){
             res 
                 .status(400)
                 .json({
-                    sucess: false,
+                    success: false,
                     message: "Error",
-                    data: err
+                    sql: err
                 })
         }
     })

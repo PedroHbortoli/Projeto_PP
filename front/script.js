@@ -9,9 +9,11 @@ button.onclick = async function () {
     // criar objeto com os dados
     let data = { name, email, password };
 
+    console.log(data);
+
     const response = await fetch("http://localhost:3003/API_LogicLift/store/user", {
         method: "POST",
-        headers: { "Content-Type": "application/json=UTF-8" },
+        headers: { "Content-type": "application/json;charset=UTF-8" },
         body: JSON.stringify(data)
     });
 
@@ -21,6 +23,7 @@ button.onclick = async function () {
         alert("Sucesso")
     } else {
         alert("Não")
+        console.log(Content.sql)
     }
 
 };
