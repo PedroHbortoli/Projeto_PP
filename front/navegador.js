@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         backButton.addEventListener('click', function () {
             var lastUrl = localStorage.getItem('lastVisitedPage');
             if (lastUrl) {
-                window.location.href = lastUrl;
+                window.location.href = lastUrl  ;
             } else {
                 window.history.back();
             }

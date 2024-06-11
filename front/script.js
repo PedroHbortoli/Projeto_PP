@@ -28,3 +28,29 @@ button.onclick = async function () {
 
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Array com os nomes dos arquivos HTML
+    var pages = [
+        'pages/page1.html',
+        'pages/page2.html',
+        'pages/page3.html',
+        'pages/page4.html'
+    ];
+
+    // Função para selecionar uma página HTML aleatória do array
+    function getRandomPage() {
+        var randomIndex = Math.floor(Math.random() * pages.length);
+        return pages[randomIndex];
+    }
+
+    console.log(randomIndex)
+    // Função para redirecionar para uma página HTML aleatória
+    function loadRandomPage() {
+        var randomPage = getRandomPage();
+        window.location.href = randomPage;
+    }
+
+    // Adicionar evento de clique ao botão para carregar uma nova página
+    var randomPageButton = document.getElementById('randomPageButton');
+    randomPageButton.addEventListener('click', loadRandomPage);
+});
