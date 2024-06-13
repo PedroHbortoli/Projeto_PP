@@ -22,17 +22,6 @@ header {
     width: 100vw;
 }
 
-.back-button{
-    border: 1px solid rgb(0, 0, 0);
-    font-size: 2vh;
-    background-color:#d64846;
-    color: #ffffff;
-    height: 3vh;
-    width: 5vw;
-    margin: 1.5vh;
-    border-radius: 20vh;
-}
-
 /* -------------main------------- */
 
 main {
@@ -44,13 +33,16 @@ main {
     width: 100vw;
 }
 
-.conteiner{
+.container{
+    border: 1px solid rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     max-width: 40vw;
     margin-bottom: 4vw;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .style-text{
@@ -82,6 +74,22 @@ main {
     margin-top: 3vw;
 }
 
+.img1 {
+    height: 40vh;
+    width: 20vw;
+}
+
+.respostas {
+    display:inline;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 3vh;
+    margin: 2vh;
+    height: 2vh;
+    width: 2vw;
+    background-color: #404040;
+    color: #ffffff;
+}
 /* -------------footer------------- */
 
 footer {

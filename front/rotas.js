@@ -11,5 +11,5 @@ document.getElementById("randomPageButton").addEventListener('click', function()
 
     var randomIndex = Math.floor(Math.random() * pages.length);
     window.location.href = pages[randomIndex];
-    
+     
 });

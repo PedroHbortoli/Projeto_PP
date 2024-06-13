@@ -16,14 +16,4 @@ button.onclick = async function () {
         headers: { "Content-type": "application/json;charset=UTF-8" },
         body: JSON.stringify(data)
     });
-
-    let Content = await response.json();
-
-    if (Content.success) {
-        alert("Sucesso")
-    } else {
-        alert("Não")
-        console.log(Content.sql)
-    }
-
 };
