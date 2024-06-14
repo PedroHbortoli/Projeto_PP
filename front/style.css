@@ -58,8 +58,7 @@ main {
     font-weight: bold;
     color: white;
     display: inline-block;
-    margin-bottom: 2vh;
-    margin-top: 3vh;
+    margin: 4vh;
 }
 
 .style-description {
@@ -68,7 +67,6 @@ main {
     color: white;
     display: inline-block;
     margin-bottom: 20px;
-    padding: 15vh;
 }
 
 .button {

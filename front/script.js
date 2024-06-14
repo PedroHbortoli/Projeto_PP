@@ -13,12 +13,3 @@ document.getElementById("randomPageButton").addEventListener('click', function()
     window.location.href = pages[randomIndex];
 });
 
-let elo = 0;
-
-document.getElementById('addButton').addEventListener('click', function() {
-    elo += 1;
-});
-
-document.getElementById('subButton').addEventListener('click', function() {
-    elo -= 1;
-});
