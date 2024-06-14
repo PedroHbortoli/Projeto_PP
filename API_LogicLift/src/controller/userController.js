@@ -11,6 +11,7 @@ async function storeUser(req, res){
     console.log(req.body)
 
     const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?, ?, ?)";
+    
 
     connection.query(query, params, (err, results) => {
         if(results){

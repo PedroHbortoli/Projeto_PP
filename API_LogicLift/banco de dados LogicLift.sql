@@ -8,15 +8,16 @@ CREATE TABLE usuarios(
     senha VARCHAR(255) 
 );
 
-CREATE TABLE elo_usuario(
+CREATE TABLE elo_usuarios(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	elo ENUM ('ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda')
-    DEFAULT 'ferro'
+    DEFAULT 'ferro',
+	FOREIGN KEY (id) REFERENCES usuarios(id)
 );
 
-INSERT INTO elo_usuario (id)
-VALUES (1);
 
-SELECT * FROM elo_usuario;
+select * from elo_usuarios;
 
-DROP TABLE elo_usuario;
+SELECT * FROM usuarios;
+
+DROP TABLE elo_usuarios;
