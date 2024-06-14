@@ -11,5 +11,14 @@ document.getElementById("randomPageButton").addEventListener('click', function()
 
     var randomIndex = Math.floor(Math.random() * pages.length);
     window.location.href = pages[randomIndex];
-     
+});
+
+let elo = 0;
+
+document.getElementById('addButton').addEventListener('click', function() {
+    elo += 1;
+});
+
+document.getElementById('subButton').addEventListener('click', function() {
+    elo -= 1;
 });
