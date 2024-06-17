@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM totalmente carregado e analisado');
 
     let elo = 0;
 
@@ -24,9 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 messageElement.textContent = 'Bronze';
             }
-            console.log(`Mensagem atualizada: ${messageElement.textContent}`);
-        } else {
-            console.error('Elemento message não encontrado');
         }
     }
 
@@ -34,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const subButtons = document.querySelectorAll('.subButton');
 
     if (addButton && subButtons.length > 0) {
-        console.log('Botões encontrados');
 
         addButton.addEventListener('click', function() {
             elo += 1;
@@ -50,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Carregar o valor de elo ao iniciar a página
         loadElo();
         updateMessage();
     }

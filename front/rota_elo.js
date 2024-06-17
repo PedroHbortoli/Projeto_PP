@@ -1,16 +1,21 @@
-let submit_elo = document.getElementById("submit_elo");
+let to_send = document.getElementById("submit_elo");
 
-submit_elo.addEventListener('click', async function () {
+to_send.onclick = async function () {
 
-    const elo = document.getElementById('message').textContent.trim().toLowerCase();
+    let dados = document.getElementById('message').value;
 
-    const dados = {
-        elo: elo
-    };
-
-    const submit = await fetch("http://localhost:3003/API_LogicLift/store/elo", {
+    const response = await fetch("http://localhost:3003/API_LogicLift/store/elo", {
         method: "POST",
         headers: { "Content-type": "application/json;charset=UTF-8" },
         body: JSON.stringify(dados)
     })
-});
+
+    let Content = await response.json();
+
+    if(Content.success) {
+        alert("Elo stored successfully");
+    } else {
+        alert("Error storing Elo");
+        console.log(Content.sql);
+    }
+};
