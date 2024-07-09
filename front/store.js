@@ -1,9 +1,11 @@
-// Inicializar o valor do contador como zero
-let respostasCorretas = 0;
+// Inicializar o valor do contador a partir do localStorage ou zero
+let respostasCorretas = localStorage.getItem('respostasCorretas') ? parseInt(localStorage.getItem('respostasCorretas'), 10) : 0;
 
+console.log(respostasCorretas);
 // Função para incrementar o contador de respostas corretas
 function incrementarRespostasCorretas() {
     respostasCorretas++;
+    localStorage.setItem('respostasCorretas', respostasCorretas);
     atualizarMensagem(respostasCorretas);
 }
 
@@ -18,4 +20,8 @@ function atualizarMensagem(contador) {
 }
 
 // Exibir a mensagem inicial
-atualizarMensagem(respostasCorretas);
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarMensagem(respostasCorretas);
+    window.incrementarRespostasCorretas = incrementarRespostasCorretas;
+});
+    
