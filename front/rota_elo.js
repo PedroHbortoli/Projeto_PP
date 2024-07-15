@@ -2,7 +2,8 @@ let to_send = document.getElementById("submit_elo");
 
 to_send.onclick = async function () {
 
-    let dados = document.getElementById('message').value;
+    let dados = document.getElementById('mensagem').innerText;
+    console.log(dados)
 
     const response = await fetch("http://localhost:3003/API_LogicLift/store/elo", {
         method: "POST",

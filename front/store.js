@@ -1,4 +1,4 @@
-// Inicializar o valor do contador a partir do localStorage ou zero
+
 let respostasCorretas = localStorage.getItem('respostasCorretas') ? parseInt(localStorage.getItem('respostasCorretas'), 10) : 0;
 
 console.log(respostasCorretas);
