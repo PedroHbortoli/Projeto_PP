@@ -12,8 +12,9 @@ function incrementarRespostasCorretas() {
 // Função para atualizar a mensagem
 function atualizarMensagem(contador) {
     const mensagemElement = document.getElementById('mensagem');
+    console.log(mensagemElement);
     if (contador <= 2) {
-        mensagemElement.innerText = "Ferro";
+        mensagemElement.innerHTML = "Ferro";
     } else if (contador >= 3) {
         mensagemElement.innerText = "Bronze";
     }

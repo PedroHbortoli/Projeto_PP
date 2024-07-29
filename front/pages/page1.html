@@ -30,7 +30,28 @@
 
             <div class="button-container">
 
-                <a href="page2.html">
+                <input type="radio" name="answer" value="A">
+                <label for="A">A</label>
+                
+                <input type="radio" name="answer" value="B">
+                <label for="B">B</label>
+                
+                <input type="radio" name="answer" value="C">
+                <label for="C">C</label>
+                
+                <input type="radio" name="answer" value="D">
+                <label for="D">D</label>
+                
+                <input type="radio" name="answer" value="E">
+                <label for="E">E</label>
+
+                <button 
+                    onclick="validateAnswer(1)"
+                >
+                    Próximo
+                </button>
+
+                <!-- <a href="page2.html">
                     <button class="">A</button>
                 </a>
                 <a href="page2.html">
@@ -41,10 +62,10 @@
                 </a>
                 <a href="page2.html">
                     <button class="">D</button>
-                </a>
+                </a> 
                 <a href="page2.html">
-                    <button id="acertar">E</button> <!-- correta -->
-                </a>
+                    <button id="acertar" onclick="validateAnswer()">E</button> <!-- correta -->
+                <!-- </a> --> 
             </div>
     </main>
 
@@ -53,14 +74,15 @@
         <div></div>
     </footer>
 
-    <script src="../store.js"></script>
-    <script>
+    <!-- <script src="../store.js"></script> -->
+    <script src="./script.js"></script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('acertar').addEventListener('click', () => {
                 window.incrementarRespostasCorretas();
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

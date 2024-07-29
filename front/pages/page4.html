@@ -28,18 +28,38 @@
             <img src="../../assets/exercicio_1.jpg" alt="" class="img1">
 
             <div class="button-container">
-                <a href="../revelacao.html">
+
+                <input type="radio" name="answer" value="A">
+                <label for="A">A</label>
+                
+                <input type="radio" name="answer" value="B">
+                <label for="B">B</label>
+                
+                <input type="radio" name="answer" value="C">
+                <label for="C">C</label>
+                
+                <input type="radio" name="answer" value="D">
+                <label for="D">D</label>
+
+                <button 
+                    onclick="validateAnswer(4)"
+                >
+                    Próximo
+                </button>
+
+                
+                <!-- <a href="../revelacao.html">
                     <button class="">A</button>
                 </a>
                 <a href="../revelacao.html">
-                    <button id="acertar">B</button> <!-- correta -->
+                    <button id="acertar">B</button>  correta
                 </a>
                 <a href="../revelacao.html">
                     <button class="">C</button>
                 </a>
                 <a href="../revelacao.html">
                     <button class="">D</button> 
-                </a>
+                </a> -->
             </div>
 
         </div>
@@ -51,14 +71,15 @@
         <div></div>
     </footer>
 
-    <script src="../store.js"></script>
-    <script>
+    <!-- <script src="../store.js"></script> -->
+    <script src="./script.js"></script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('acertar').addEventListener('click', () => {
                 window.incrementarRespostasCorretas();
             });
         });
-    </script>
+    </script> -->
 
 </body>
 
