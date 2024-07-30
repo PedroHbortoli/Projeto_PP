@@ -11,19 +11,11 @@ async function handleSubnit(event) {
 
     let dados = document.getElementById('mensagem').innerText;
     console.log(dados)
-
+    const elo = {dados};
+console.log(elo);
     const response = await fetch("http://localhost:3003/API_LogicLift/store/elo", {
         method: "POST",
         headers: { "Content-type": "application/json;charset=UTF-8" },
-        body: JSON.stringify(dados)
+        body: JSON.stringify(elo)
     })
-
-    let Content = await response.json();
-
-    if(Content.success) {
-        alert("Elo stored successfully");
-    } else {
-        alert("Error storing Elo");
-        console.log(Content.sql);
-    }
 }
