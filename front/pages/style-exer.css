@@ -100,6 +100,31 @@ main {
 .button-container button:hover {
     background-color: #303030;
 }
+
+input[type="radio"] {
+    display: none;
+  } 
+
+  .custom-radio {
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #404040;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 3vh;
+    height: 3vh;
+    width: 5vh;
+  }
+
+  
+
+  .custom-radio:hover {
+    background-color: #2e2e2e;
+  }
 /* -------------footer------------- */
 
 footer {
