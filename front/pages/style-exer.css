@@ -58,9 +58,16 @@ main {
     font-weight: bold;
     color: white;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     padding: 12vh;
 }
+
+.img1 {
+    height: 35vh;
+    width: 20vw;
+    padding-bottom: 7vh;
+}
+/* ------------------------------ */
 
 .button {
     background-color: #404040;
@@ -73,58 +80,19 @@ main {
     margin-top: 3vw;
 }
 
-.img1 {
-    height: 35vh;
-    width: 20vw;
-    padding-bottom: 7vh;
-}
 
-.button-container {
+.myForm {
     display: flex;
-    gap: 6vh; 
+    gap: 2vh; 
     margin-top: 20px; 
 }
 
-.button-container button {
+.custom-radio {
+    padding: 12px;
     background-color: #404040;
+    border-radius: 57px;
     color: white;
-    border: none;
-    border-radius: 100px;
-    padding: 10px 20px;
-    font-size: 3vh;
-    cursor: pointer;
-    height: 8vh;
-    width: 8vh;
 }
-
-.button-container button:hover {
-    background-color: #303030;
-}
-
-input[type="radio"] {
-    display: none;
-  } 
-
-  .custom-radio {
-    display: inline-block;
-    color: #ffffff;
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #404040;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    font-size: 3vh;
-    height: 3vh;
-    width: 5vh;
-  }
-
-  
-
-  .custom-radio:hover {
-    background-color: #2e2e2e;
-  }
 /* -------------footer------------- */
 
 footer {
@@ -132,3 +100,4 @@ footer {
     height: 6vh;
     width: 100vw;
 }
+

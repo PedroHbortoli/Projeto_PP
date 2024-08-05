@@ -27,28 +27,39 @@
             </p>
             <img src="../../assets/exercicio_2.png" alt="" class="img1">
 
-            <div class="button-container">
+            <div class="myForm">
 
-                <input type="radio" name="answer" value="A">
-                <label for="A">A</label>
+                <span class="custom-radio">
+                    <input type="radio" name="answer" value="A">
+                    <label for="A">A</label>
+                </span>
                 
-                <input type="radio" name="answer" value="B">
-                <label for="B">B</label>
-                
-                <input type="radio" name="answer" value="C">
-                <label for="C">C</label>
-                
-                <input type="radio" name="answer" value="D">
-                <label for="D">D</label>
+                <span class="custom-radio">
+                    <input type="radio" name="answer" value="B">
+                    <label for="B">B</label>
+                </span>
 
-                <input type="radio" name="answer" value="E">
-                <label for="E">E</label>
+                <span class="custom-radio">
+                    <input type="radio" name="answer" value="C">
+                    <label for="C">C</label>
+                </span>
+                
+                <span class="custom-radio">
+                    <input type="radio" name="answer" value="D">
+                    <label for="D">D</label>
+                </span> 
 
-                <button 
-                    onclick="validateAnswer(3)"
-                >
-                    Próximo
-                </button>
+                <span class="custom-radio">
+                    <input type="radio" name="answer" value="E">
+                    <label for="E">E</label>
+                </span>
+
+            </div>
+            <button class="button"
+                onclick="validateAnswer(3)"
+            >
+                Próximo
+            </button>
 
                 <!-- <a href="./page4.html">
                     <button class="">A</button>
