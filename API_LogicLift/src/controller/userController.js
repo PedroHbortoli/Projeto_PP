@@ -34,6 +34,31 @@ async function storeUser(req, res){
     })
 }
 
+async function getUser(req, res){
+    const query = "SELECT nome FROM usuarios";
+
+    connection.query(query, (err, results) => {
+        if(results){
+            res
+                .status(201)
+                .json({
+                    success: true,
+                    message: "success",
+                    data: results
+                })
+        } else {
+            res 
+                .status(400)
+                .json({
+                    success: false,
+                    message: "erro!",
+                    sql: err
+                })
+        }
+    })
+}
+
 module.exports = {
-    storeUser
+    storeUser,
+    getUser
 }

@@ -1,9 +1,10 @@
 const { Router } = require('express');
 const router = Router();
 
-const { storeUser } = require('../controller/userController');
+const { storeUser, getUser} = require('../controller/userController');
 
 router.post('/store/user', storeUser);
+router.get('/get/user', getUser)
 
 const { storeElo} = require('../controller/eloController');
 
