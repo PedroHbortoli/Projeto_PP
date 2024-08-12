@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => { 
     const response = await fetch('http://localhost:3003/API_LogicLift/get/user');
     const results = await response.json();
-    console.log(results);
+
+    document.getElementById("nome").innerHTML = results.data[0].nome;
+
 
     
     // if (results) {

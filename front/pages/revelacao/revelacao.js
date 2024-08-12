@@ -19,3 +19,5 @@ console.log(elo);
         body: JSON.stringify(elo)
     })
 }
+
+window.location.href = "";

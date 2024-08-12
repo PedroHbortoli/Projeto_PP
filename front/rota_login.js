@@ -11,6 +11,8 @@ button.onclick = async function () {
 
     console.log(data);
 
+    alert("Cadastro Feito!");
+
     const response = await fetch("http://localhost:3003/API_LogicLift/store/user", {
         method: "POST",
         headers: { "Content-type": "application/json;charset=UTF-8" },
