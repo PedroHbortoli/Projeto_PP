@@ -49,9 +49,7 @@ main {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    max-width: 40vw;
-    max-height: 80vh;
-    margin-bottom: 3vw;
+    max-width: 50vw;
 }
 
 .style-text{
@@ -77,46 +75,11 @@ main {
     text-decoration-color: #ffffff;
 }
 
-.button {
-    background-color: #404040;
-    font-size: 2vh;
-    color: #ffffff;
-    height: 7vh;
-    width: 20vh;
-    border-radius: 20vh;
-    margin: 2vh;
-    margin-top: 3vw;
-}
-
-.form-group input{
-    background-color: #404040;
-    font-size: 2vh;
-    color: #ffffff;
-    height: 6vh;
-    width: 30vw;
-    border-radius: 5vh;
-    padding-left: 1vw;
-    margin-top: 4vh;
-}
-
-.form-group input::placeholder{
-    font-size: 2vh;
-    color: #ffffff;
-}
-
-.submit-button{
-    background-color: #404040;
-    font-size: 2vh;
-    color: #ffffff;
-    height: 7vh;
-    width: 10vw;
-    border-radius: 20vh;
-    margin: 2vh;
-    margin-top: 3vw;
-}
-
 .myForm {
-    padding: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
     margin: 5vh;
     margin-bottom: 20vh;
     margin-top: 7vh;
@@ -130,13 +93,34 @@ main {
     width: 7vw;
     font-size: 3vh;
     border-radius: 100px;
-    margin: 1vh;
+    gap: 20vh;
+    max-width: 14vh;
+    max-height: 7vw;
 }
 
 .level:hover{
     background-color:#333333;
 }
 
+.task {
+    background-color: #404040;
+    font-size: 2vh;
+    color: #ffffff;
+    height: 7vh;
+    width: 9vw;
+    border-radius: 20vh;
+    margin-bottom:3vh ;
+}
+
+.task:hover {
+    background-color: #333333;  
+}
+
+img {
+    height: 8vh;
+    width: 4vw;
+    color: #ffffff;
+}
 
 /* -------------footer------------- */
 

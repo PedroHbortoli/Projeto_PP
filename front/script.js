@@ -3,13 +3,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const results = await response.json();
 
     document.getElementById("nome").innerHTML = results.data[0].nome;
+});
 
+const next = document.getElementById("go");
 
-    
-    // if (results) {
-    //     results.data.forEach(element => {
-    //         const nameUser = document.createElement('p');
-    //         nameUser.textContent = element.name;
-    //     });
-    // }
-})
+next.onclick = function() {
+    window.location.href = "./niveis/niveis.html";
+};

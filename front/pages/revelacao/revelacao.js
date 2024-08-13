@@ -1,4 +1,4 @@
-let contador = localStorage.getItem('respostasCorretas', localStorage.getItem('respostasCorretas') ? parseInt(localStorage.getItem('respostasCorretas'), 10) : 0) 
+let contador = localStorage.getItem('respostasCorretas', localStorage.getItem('respostasCorretas') ? parseInt(localStorage.getItem('respostasCorretas'), 10) : 0)
 
 
 contador <= 2  //condição fi
@@ -11,8 +11,8 @@ async function handleSubnit(event) {
 
     let dados = document.getElementById('mensagem').innerText;
     console.log(dados)
-    const elo = {dados};
-console.log(elo);
+    const elo = { dados };
+    console.log(elo);
     const response = await fetch("http://localhost:3003/API_LogicLift/store/elo", {
         method: "POST",
         headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -20,4 +20,8 @@ console.log(elo);
     })
 }
 
-window.location.href = "";
+const next = document.getElementById("submit_elo");
+
+next.onclick = function() {
+    window.location.href = "../../infoPage.html";
+};
