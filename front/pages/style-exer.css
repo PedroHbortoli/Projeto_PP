@@ -77,7 +77,10 @@ main {
     width: 20vh;
     border-radius: 20vh;
     margin: 2vh;
-    margin-top: 3vw;
+    max-width: 20vh;
+    max-height: 7vh;
+    min-width: 20vh;
+    min-height: 5vh;
 }
 
 

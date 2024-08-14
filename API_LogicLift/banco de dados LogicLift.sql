@@ -3,9 +3,9 @@ USE logicLift;
 
 CREATE TABLE usuarios(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(255),
-    email VARCHAR(255),
-    senha VARCHAR(255) 
+	nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE elo_usuarios(
@@ -14,6 +14,14 @@ CREATE TABLE elo_usuarios(
     DEFAULT 'ferro',
 	FOREIGN KEY (id) REFERENCES usuarios(id)
 );
+
+CREATE TABLE atividades(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	descricao VARCHAR(255) NOT NULL,
+	imagem VARCHAR,
+	n_resposta INT NOT NULL,
+	resposta_certa INT NOT NULL
+)
 
 
 select * from elo_usuarios;
