@@ -17,14 +17,15 @@ CREATE TABLE elo_usuarios(
 
 CREATE TABLE atividades(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(255) NOT NULL,
-	imagem VARCHAR,
-	n_resposta INT NOT NULL,
-	resposta_certa INT NOT NULL
+	descricao VARCHAR(255),
+	imagem VARCHAR(255),
+	n_resposta INT,
+	resposta_certa INT
 )
 
+SELECT * FROM atividades;
 
-select * from elo_usuarios;
+SELECT * FROM elo_usuarios;
 
 SELECT * FROM usuarios;
 

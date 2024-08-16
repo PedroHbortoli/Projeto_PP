@@ -1,0 +1,130 @@
+* {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Inter", sans-serif;
+}
+
+
+:root {
+    --vermelho-forte: rgba(#FF0400);
+    --vermelho-fraco: rgba(#d64846);
+    --branca: rgba(#ffffff);
+    --cinza: rgba(#828282);
+    --cinza-escuro: rgba(#191919);
+}
+
+/* -------------header------------- */
+
+header {
+    background-color: #404040;
+    height: 6vh;
+    width: 100vw;
+}
+
+/* -------------main------------- */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d64846;
+    height: 88vh;
+    width: 100vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    max-width: 40vw;
+    max-height: 80vh;
+    margin-bottom: 3vw;
+}
+
+.style-text{
+    font-size: 8vh;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    margin: 4vh;
+}
+
+.style-description {
+    font-size: 5vh;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.style-legenda{
+    color: #ffffff;
+    font-size: 2.5vh;
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+}
+
+.button {
+    background-color: #404040;
+    font-size: 2vh;
+    color: #ffffff;
+    height: 7vh;
+    width: 20vh;
+    border-radius: 20vh;
+    margin: 2vh;
+    margin-top: 3vw;
+}
+
+.form-group input{
+    background-color: #404040;
+    font-size: 2vh;
+    color: #ffffff;
+    height: 6vh;
+    width: 30vw;
+    border-radius: 5vh;
+    padding-left: 1vw;
+    margin-top: 4vh;
+}
+
+.form-group input::placeholder{
+    font-size: 2vh;
+    color: #ffffff;
+}
+
+.submit-button{
+    background-color: #404040;
+    font-size: 2vh;
+    color: #ffffff;
+    height: 7vh;
+    width: 10vw;
+    border-radius: 20vh;
+    margin: 2vh;
+    margin-top: 3vw;
+}
+
+/* input[type="file"] {
+    display: none;
+}
+
+label[for*="imagem"] {
+    padding: 1.25vw 18vh;
+    width: 200px;
+    background-color: #404040;
+    color: #FFF;
+    border-radius: 20vh;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+} */
+
+/* -------------footer------------- */
+
+footer {
+    background-color: #404040;
+    height: 6vh;
+    width: 100vw;
+}
