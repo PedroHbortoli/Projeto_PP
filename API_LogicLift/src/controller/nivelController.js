@@ -6,12 +6,12 @@ async function storeNivel(req, res){
         req.body.descricao,
         req.body.imagem,
         req.body.n_resposta,
-        req.body.n_resposta_c
+        req.body.resposta_c
     );
 
     console.log(req.body)
 
-    const query = "INSERT INTO usuarios(descricao, imagem, n_resposta, resposta_certa) VALUES(?, ?, ?, ?)";
+    const query = "INSERT INTO atividades(descricao, imagem, n_resposta, resposta_certa) VALUES(?, ?, ?, ?)";
     
 
     connection.query(query, params, (err, results) => {
