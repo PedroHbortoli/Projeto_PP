@@ -15,15 +15,21 @@ CREATE TABLE elo_usuarios(
 	FOREIGN KEY (id) REFERENCES usuarios(id)
 );
 
-CREATE TABLE atividades(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(255),
-	imagem VARCHAR(255),
-	n_resposta INT,
-	resposta_certa INT
-)
+CREATE TABLE pergunta (
+    id_perguntas INT AUTO_INCREMENT PRIMARY KEY,
+    ds_descricao VARCHAR(255)
+);
 
-SELECT * FROM atividades;
+CREATE TABLE resposta (
+    id_respostas INT AUTO_INCREMENT PRIMARY KEY,
+    id_pergunta INT,
+    ds_resposta VARCHAR(255),
+    FOREIGN KEY (id_pergunta) REFERENCES pergunta(id_perguntas)
+);
+
+SELECT * FROM pergunta;
+
+SELECT * FROM resposta;
 
 SELECT * FROM elo_usuarios;
 

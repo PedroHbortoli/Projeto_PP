@@ -40,7 +40,7 @@ main {
     align-items: center;
     max-width: 40vw;
     max-height: 80vh;
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
 }
 
 .style-text{
@@ -85,7 +85,7 @@ main {
     width: 30vw;
     border-radius: 5vh;
     padding-left: 1vw;
-    margin-top: 4vh;
+    margin-top: 2vh;
 }
 
 .form-group input::placeholder{
