@@ -24,6 +24,7 @@ CREATE TABLE resposta (
     id_respostas INT AUTO_INCREMENT PRIMARY KEY,
     id_pergunta INT,
     ds_resposta VARCHAR(255),
+    ds_certo VARCHAR(255),
     FOREIGN KEY (id_pergunta) REFERENCES pergunta(id_perguntas)
 );
 

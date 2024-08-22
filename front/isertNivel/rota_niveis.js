@@ -11,7 +11,6 @@ document.getElementById('submitNivel').onclick = async function () {
 
     let data = { descricao, qtdeRespostas, respostaCerta, respostas };
     
-    // Debug: Verificando dados antes do envio
     console.log("Dados enviados: ", data);
 
     const response = await fetch("http://localhost:3003/API_LogicLift/store/nivel", {

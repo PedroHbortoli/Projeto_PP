@@ -3,9 +3,9 @@ const connection = require('../config/db');
 async function storeNivel(req, res) {
     const { descricao, qtdeRespostas, respostaCerta, respostas } = req.body;
 
-    // Debug: Verificando dados recebidos no backend
     console.log("Dados recebidos: ", req.body);
 
+    // Insere na tabela 'pergunta'
     const perguntaQuery = "INSERT INTO pergunta (ds_descricao) VALUES (?)";
     connection.query(perguntaQuery, [descricao], (err, result) => {
         if (err) {
@@ -15,9 +15,15 @@ async function storeNivel(req, res) {
 
         const idPergunta = result.insertId;
 
-        let respostasQuery = "INSERT INTO resposta (id_pergunta, ds_resposta) VALUES ";
-        const respostasValues = respostas.map(resposta => `(${idPergunta}, "${resposta}")`).join(", ");
+        // Insere as respostas na tabela 'resposta' com 'V' ou 'F' para 'ds_certo'
+        let respostasQuery = "INSERT INTO resposta (id_pergunta, ds_resposta, ds_certo) VALUES ";
+        const respostasValues = respostas.map((resposta, index) => {
+            let dsCerto = (index + 1) == parseInt(respostaCerta) ? 'V' : 'F';   
+            return `(${idPergunta}, "${resposta}", "${dsCerto}")`;
+        }).join(", ");
         respostasQuery += respostasValues;
+
+        console.log("Comando SQL para Respostas:", respostasQuery);
 
         connection.query(respostasQuery, (err, result) => {
             if (err) {
