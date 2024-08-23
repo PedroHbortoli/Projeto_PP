@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    let perguntasExibidas = []; // Array para armazenar as perguntas já exibidas
+    let perguntasExibidas = [];
 
     async function carregarPergunta() {
         try {
-            console.log("Iniciando a requisição para obter níveis...");
             const response = await fetch('http://localhost:3003/API_LogicLift/getNivel');
             
             if (!response.ok) {
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             
             const data = await response.json();
-            console.log("Resposta recebida:", data);
 
             if (data.success) {
                 const perguntasContainer = document.getElementById('perguntas-container');
@@ -20,24 +18,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let perguntasDisponiveis = data.data.filter(pergunta => !perguntasExibidas.includes(pergunta.id));
 
                 if (perguntasDisponiveis.length === 0) {
-                    console.log("Todas as perguntas já foram exibidas.");
-                    return; // Você pode mostrar uma mensagem de fim ou reiniciar as perguntas.
+                    alert("Todas as perguntas já foram exibidas.");
+                    return;
                 }
 
-                // Seleciona uma pergunta aleatória das disponíveis
                 const perguntaSelecionada = perguntasDisponiveis[Math.floor(Math.random() * perguntasDisponiveis.length)];
-                perguntasExibidas.push(perguntaSelecionada.id); // Adiciona ao array de perguntas exibidas
+                perguntasExibidas.push(perguntaSelecionada.id);
 
                 const perguntaDiv = document.createElement('div');
                 perguntaDiv.classList.add('pergunta');
 
-                // Exibe a descrição da pergunta com a classe correta
                 const descricao = document.createElement('p');
                 descricao.classList.add('style-text');
                 descricao.textContent = perguntaSelecionada.descricao;
                 perguntaDiv.appendChild(descricao);
 
-                // Exibe as respostas
                 perguntaSelecionada.respostas.forEach((resposta, index) => {
                     const respostaDiv = document.createElement('div');
                     respostaDiv.classList.add('custom-radio');
@@ -45,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const radioInput = document.createElement('input');
                     radioInput.type = 'radio';
                     radioInput.name = 'resposta';
-                    radioInput.value = resposta.texto;
+                    radioInput.value = resposta.correta ? 'true' : 'false'; // Define 'true' se a resposta for correta
                     radioInput.id = `resposta${index}`;
 
                     const label = document.createElement('label');
@@ -67,16 +62,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Carrega a primeira pergunta ao carregar a página
     carregarPergunta();
 
-    // Evento para carregar a próxima pergunta quando o botão for clicado
     document.getElementById('proximo').addEventListener('click', () => {
-        const respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
-        if (respostaSelecionada) {
+        const selecionado = document.querySelector('input[name="resposta"]:checked');
+        if (selecionado) {
+            const correta = selecionado.value === 'true'; // Verifica se o valor da resposta é 'true'
+            if (correta) {
+                alert("Você acertou!");
+            } else {
+                alert("Você errou!");
+            }
             carregarPergunta();
         } else {
-            alert("Por favor, selecione uma resposta antes de continuar.");
+            alert("Por favor, selecione uma resposta.");
         }
     });
 });

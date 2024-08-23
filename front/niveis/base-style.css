@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     border: 0px;
     padding: 0px;
@@ -13,38 +14,47 @@
     --cinza-escuro: #191919;
 }
 
-/* -------------main container------------- */
+/* Header */
+header {
+    background-color: #404040;
+    height: 6vh;
+    width: 100vw;
+}
+
+/* Main */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d64846;
+    height: 88vh;
+    width: 100vw;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 90vh;
-    background-color: var(--vermelho-fraco);
 }
 
-/* -------------Perguntas Container------------- */
 .perguntas-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem; /* Espaçamento entre as respostas */
+    max-width: 90%;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+    text-align: center;
 }
 
-/* -------------Pergunta ------------- */
 .style-text {
-    font-size: 8vh;
+    font-size: 5vw;
     font-weight: bold;
     color: white;
-    display: block;
     margin-bottom: 2vh;
     margin-top: 3vh;
-    text-align: center;
-    white-space: nowrap;
 }
 
-/* -------------Botões de Resposta------------- */
+/* Custom Radio Buttons */
 .custom-radio {
     display: inline-block;
     margin: 1rem;
@@ -52,7 +62,7 @@
 }
 
 .custom-radio input[type="radio"] {
-    display: none; /* Ocultar o radio button padrão */
+    display: none; /* Hide the default radio button */
 }
 
 .custom-radio label {
@@ -74,7 +84,7 @@
     background-color: #292929;
 }
 
-/* -------------Botão Próximo------------- */
+/* Button */
 .btn-proximo {
     margin-top: 3rem;
     padding: 0.75rem 2rem;
@@ -91,13 +101,9 @@
     background-color: #292929;
 }
 
-/* -------------Footer------------- */
+/* Footer */
 footer {
     background-color: #404040;
-    color: var(--branca);
-    text-align: center;
-    padding: 2vh 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
+    height: 6vh;
+    width: 100vw;
 }
