@@ -14,10 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
         backButton.addEventListener('click', function () {
             var lastUrl = localStorage.getItem('lastVisitedPage');
             if (lastUrl) {
-                window.location.href = lastUrl  ;
+                window.location.href = lastUrl;
             } else {
                 window.history.back();
             }
         });
     }
 });
+
+
+const next = document.getElementById("go");
+
+next.onclick = function() {
+    window.location.href = "./niveis/niveis.html";
+};

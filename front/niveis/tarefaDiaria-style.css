@@ -9,16 +9,22 @@
 :root {
     --vermelho-forte: #FF0400;
     --vermelho-fraco: #d64846;
-    --branca: #ffffff;
+    --branco: #ffffff;
     --cinza: #828282;
     --cinza-escuro: #191919;
 }
 
 /* Header */
 header {
-    background-color: #404040;
+    background-color: #302f2f;
     height: 6vh;
     width: 100vw;
+}
+
+.header-title {
+    color: var(--branco);
+    text-align: center;
+    line-height: 6vh;
 }
 
 /* Main */
@@ -49,7 +55,7 @@ main {
 .style-text {
     font-size: 2vw;
     font-weight: bold;
-    color: white;
+    color: var(--branco);
     margin-bottom: 2vh;
     margin-top: 3vh;
 }
@@ -62,14 +68,14 @@ main {
 }
 
 .custom-radio input[type="radio"] {
-    display: none; /* Hide the default radio button */
+    display: none; /* Esconde o botão de rádio padrão */
 }
 
 .custom-radio label {
     display: inline-block;
     padding: 0.5rem 1rem;
     font-size: 2vh;
-    color: white;
+    color: var(--branco);
     background-color: #404040;
     border-radius: 20px;
     cursor: pointer;
@@ -77,11 +83,11 @@ main {
 }
 
 .custom-radio input[type="radio"]:checked + label {
-    background-color: #292929;
+    background-color: #404040;
 }
 
 .custom-radio label:hover {
-    background-color: #292929;
+    background-color: #404040;
 }
 
 /* Button */
@@ -89,7 +95,7 @@ main {
     margin-top: 3rem;
     padding: 0.75rem 2rem;
     font-size: 2vh;
-    color: white;
+    color: var(--branco);
     background-color: #404040;
     border: none;
     border-radius: 20px;
@@ -98,12 +104,12 @@ main {
 }
 
 .btn-proximo:hover {
-    background-color: #292929;
+    background-color: #353535;
 }
 
 /* Footer */
 footer {
-    background-color: #404040;
+    background-color: #302f2f;
     height: 6vh;
     width: 100vw;
 }

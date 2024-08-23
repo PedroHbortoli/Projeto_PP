@@ -21,6 +21,7 @@ document.getElementById('submitNivel').onclick = async function () {
 
     if (response.ok) {
         alert("Nível inserido com sucesso!");
+        location.reload()
     } else {
         console.error("Erro ao inserir o nível:", response.status);
         alert("Erro ao inserir o nível.");

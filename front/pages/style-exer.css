@@ -91,10 +91,36 @@ main {
 }
 
 .custom-radio {
-    padding: 12px;
-    background-color: #404040;
-    border-radius: 57px;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.custom-radio input[type="radio"] {
+    display: none; /* Esconde o botão de rádio padrão */
+}
+
+.custom-radio label {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
     color: white;
+    background-color: #404040;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%; /* Garante que o label ocupa todo o espaço disponível */
+    text-align: center; /* Centraliza o texto no botão */
+}
+
+.custom-radio input[type="radio"]:checked + label {
+    background-color: #262626;
+    color: white;
+}
+
+.custom-radio label:hover {
+    background-color: #262626;
 }
 /* -------------footer------------- */
 
