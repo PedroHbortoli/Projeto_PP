@@ -35,6 +35,61 @@ async function storeNivel(req, res) {
     });
 }
 
+async function getNivel(req, res) {
+    const query = `
+        SELECT 
+            pergunta.id_perguntas AS id, 
+            pergunta.ds_descricao AS descricao,
+            resposta.ds_resposta AS texto,
+            CASE WHEN resposta.ds_certo = 'V' THEN true ELSE false END AS correta
+        FROM 
+            pergunta
+        JOIN 
+            resposta 
+        ON 
+            resposta.id_pergunta = pergunta.id_perguntas
+        ORDER BY 
+            pergunta.id_perguntas ASC, 
+            resposta.id_respostas ASC;
+    `;
+
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error('Erro ao recuperar níveis:', err);
+            return res.status(400).json({
+                success: false,
+                message: "Erro ao recuperar níveis!",
+                sql: err
+            });
+        }
+
+        // Reestruturar os dados para o formato necessário
+        const data = results.reduce((acc, row) => {
+            const existingQuestion = acc.find(q => q.id === row.id);
+            const resposta = { texto: row.texto, correta: row.correta };
+
+            if (existingQuestion) {
+                existingQuestion.respostas.push(resposta);
+            } else {
+                acc.push({
+                    id: row.id,
+                    descricao: row.descricao,
+                    respostas: [resposta]
+                });
+            }
+
+            return acc;
+        }, []);
+
+        res.status(200).json({
+            success: true,
+            message: "Níveis recuperados com sucesso!",
+            data: data
+        });
+    });
+}
+
 module.exports = {
-    storeNivel
+    storeNivel,
+    getNivel
 };

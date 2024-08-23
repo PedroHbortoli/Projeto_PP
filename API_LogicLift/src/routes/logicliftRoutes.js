@@ -10,8 +10,9 @@ const { storeElo} = require('../controller/eloController');
 
 router.post('/store/elo', storeElo)
 
-const { storeNivel } = require('../controller/nivelController');
+const { storeNivel, getNivel} = require('../controller/nivelController');
 
 router.post('/store/nivel', storeNivel);
+router.get('/getNivel', getNivel); // Corrigido aqui
 
 module.exports = router;
