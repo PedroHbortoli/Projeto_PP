@@ -50,8 +50,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-const next = document.getElementById("next-bemVindo");
-
-next.onclick = function() {
-    window.location.href = "./pages/page1.html";
-};
