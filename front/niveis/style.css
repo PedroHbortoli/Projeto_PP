@@ -22,15 +22,28 @@ header {
     width: 100vw;
 }
 
-.back-button{
+.back-button {
     border: 1px solid rgb(0, 0, 0);
     font-size: 2vh;
-    background-color:#d64846;
+    background-color: #d64846;
     color: #ffffff;
     height: 3vh;
     width: 5vw;
     margin: 1.5vh;
     border-radius: 20vh;
+}
+
+.navbar {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.profilePhoto {
+    height: 5.2vh;
+    width: 2.6vw;
+    border-radius: 30px;
+    padding: 0.5vh;
 }
 
 /* -------------main------------- */
@@ -44,7 +57,7 @@ main {
     width: 100vw;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -52,7 +65,7 @@ main {
     max-width: 50vw;
 }
 
-.style-text{
+.style-text {
     font-size: 8vh;
     font-weight: bold;
     color: white;
@@ -68,7 +81,7 @@ main {
     margin-bottom: 20px;
 }
 
-.style-legenda{
+.style-legenda {
     color: #ffffff;
     font-size: 2.5vh;
     text-decoration: underline;
@@ -98,8 +111,8 @@ main {
     max-height: 7vw;
 }
 
-.level:hover{
-    background-color:#333333;
+.level:hover {
+    background-color: #333333;
 }
 
 .task {
@@ -109,11 +122,11 @@ main {
     height: 7vh;
     width: 9vw;
     border-radius: 20vh;
-    margin-bottom:3vh ;
+    margin-bottom: 3vh;
 }
 
 .task:hover {
-    background-color: #333333;  
+    background-color: #333333;
 }
 
 img {
@@ -130,10 +143,12 @@ img {
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
 }
+
 /* -------------footer------------- */
 
 footer {
