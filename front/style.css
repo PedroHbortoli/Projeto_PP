@@ -137,6 +137,16 @@ main {
     background-color:#333333;
 }
 
+.card{
+    background-color: rgba(183, 164, 164, 0.514);
+    height: 70vh;
+    width: 40vw;
+    border-radius: 20px;
+}
+
+.card h4{
+    padding-top: ;
+}
 
 /* -------------footer------------- */
 
