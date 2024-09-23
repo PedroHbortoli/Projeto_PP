@@ -145,8 +145,26 @@ main {
 }
 
 .card h4{
-    padding-top: ;
+    padding-top: 2vh;
 }
+
+.profile{
+    border-radius: 100px;
+    height: 20vh;
+    width: 10vw;
+}
+
+.sectionOne{
+    margin: 6vh;
+    margin-top: 4vh;
+    display: flex;
+}
+
+.sectionOne p {
+    margin-top: 15vh;
+    border-bottom: 1px solid #000;
+}
+
 
 /* -------------footer------------- */
 
