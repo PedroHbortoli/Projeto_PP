@@ -88,6 +88,14 @@ main {
     margin-top: 3vw;
 }
 
+.profNav{
+    height: 5vh;
+    width: 2.5vw;
+    margin: 0.5vh;
+    
+    border-radius: 100px;
+}
+
 .form-group input{
     background-color: #404040;
     font-size: 2vh;
@@ -155,14 +163,25 @@ main {
 }
 
 .sectionOne{
-    margin: 6vh;
-    margin-top: 4vh;
+    margin: 3vh;
     display: flex;
+    border: 1px solid black;
 }
 
 .sectionOne p {
-    margin-top: 15vh;
-    border-bottom: 1px solid #000;
+    margin-top: 15vh; 
+}   
+
+.sectionTwo{
+    margin: 3vh;
+    display: flex;
+    border: 1px solid black;
+}
+
+.sectionThree{
+    margin: 3vh;
+    display: flex;
+    border: 1px solid black;
 }
 
 
