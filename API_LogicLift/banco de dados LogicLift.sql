@@ -5,7 +5,8 @@ CREATE TABLE usuarios(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    senha VARCHAR(255) NOT NULL
+    senha VARCHAR(255) NOT NULL,
+    xp_usuario INT
 );
 
 CREATE TABLE elo_usuarios(
@@ -17,7 +18,8 @@ CREATE TABLE elo_usuarios(
 
 CREATE TABLE pergunta (
     id_perguntas INT AUTO_INCREMENT PRIMARY KEY,
-    ds_descricao VARCHAR(255)
+    ds_descricao VARCHAR(255),
+    ds_dificuldade VARCHAR(255)
 );
 
 CREATE TABLE resposta (
@@ -36,4 +38,6 @@ SELECT * FROM elo_usuarios;
 
 SELECT * FROM usuarios;
 
-DROP TABLE elo_usuarios;
+DROP TABLE pergunta;
+
+DROP DATABASE logiclift;
