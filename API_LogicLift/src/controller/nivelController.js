@@ -1,13 +1,13 @@
 const connection = require('../config/db');
 
 async function storeNivel(req, res) {
-    const { descricao, qtdeRespostas, respostaCerta, respostas } = req.body;
+    const { descricao, qtdeRespostas, respostaCerta, dificuldade, respostas } = req.body; // Inclui dificuldade
 
     console.log("Dados recebidos: ", req.body);
 
-    // Insere na tabela 'pergunta'
-    const perguntaQuery = "INSERT INTO pergunta (ds_descricao) VALUES (?)";
-    connection.query(perguntaQuery, [descricao], (err, result) => {
+    // Insere na tabela 'pergunta' com o campo dificuldade
+    const perguntaQuery = "INSERT INTO pergunta (ds_descricao, ds_dificuldade) VALUES (?, ?)"; // Ajusta query
+    connection.query(perguntaQuery, [descricao, dificuldade], (err, result) => {
         if (err) {
             console.error("Erro ao inserir pergunta:", err);
             return res.status(400).json({ success: false, message: "Erro ao inserir pergunta", error: err });

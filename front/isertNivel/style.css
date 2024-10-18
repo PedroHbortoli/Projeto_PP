@@ -104,22 +104,17 @@ main {
     margin-top: 3vw;
 }
 
-/* input[type="file"] {
-    display: none;
-}
-
-label[for*="imagem"] {
-    padding: 1.25vw 18vh;
-    width: 200px;
+.form-group select, .form-group option {
     background-color: #404040;
-    color: #FFF;
-    border-radius: 20vh;
-    text-transform: uppercase;
-    text-align: center;
-    display: block;
-    margin-top: 10px;
-    cursor: pointer;
-} */
+    font-size: 2vh;
+    color: #ffffff;
+    height: 6vh;
+    width: 31vw;
+    border-radius: 5vh;
+    padding-left: 1vw;
+    margin-top: 2vh;
+    appearance: none; /* Remove a seta padrão no select para dar um visual mais consistente */
+}
 
 /* -------------footer------------- */
 

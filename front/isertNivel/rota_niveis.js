@@ -2,6 +2,7 @@ document.getElementById('submitNivel').onclick = async function () {
     let descricao = document.getElementById("descricao").value;
     let qtdeRespostas = document.getElementById("qtde_de_respota").value;
     let respostaCerta = document.getElementById("r_certa").value;
+    let dificuldade = document.getElementById("ds_dificuldade").value; // Adiciona dificuldade
 
     let respostas = [];
     for (let i = 1; i <= qtdeRespostas; i++) {
@@ -9,7 +10,7 @@ document.getElementById('submitNivel').onclick = async function () {
         respostas.push(resposta);
     }
 
-    let data = { descricao, qtdeRespostas, respostaCerta, respostas };
+    let data = { descricao, qtdeRespostas, respostaCerta, dificuldade, respostas }; // Inclui dificuldade no objeto
     
     console.log("Dados enviados: ", data);
 
@@ -21,13 +22,12 @@ document.getElementById('submitNivel').onclick = async function () {
 
     if (response.ok) {
         alert("Nível inserido com sucesso!");
-        location.reload()
+        location.reload();
     } else {
         console.error("Erro ao inserir o nível:", response.status);
         alert("Erro ao inserir o nível.");
     }
 };
-
 
 document.getElementById('qtde_de_respota').addEventListener('input', function() {
     const container = document.getElementById('inputs-container');
