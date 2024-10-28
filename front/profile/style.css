@@ -1,0 +1,128 @@
+* {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Inter", sans-serif;
+}
+/* -------------header------------- */
+
+header {
+    background-color: #404040;
+    height: 6vh;
+    width: 100vw;
+}
+
+.back-button{
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 2vh;
+    background-color:#d64846;
+    color: #ffffff;
+    height: 3vh;
+    width: 5vw;
+    margin: 1.5vh;
+    border-radius: 20vh;
+}
+
+/* -------------main------------- */
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d64846;
+    height: 88vh;
+    width: 100vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    max-width: 40vw;
+    max-height: 80vh;
+    margin-bottom: 3vw;
+}
+
+.card{
+    background-color: rgba(183, 164, 164, 0.514);
+    height: 70vh;
+    width: 40vw;
+    border-radius: 20px;
+}
+
+.card h4{
+    padding-top: 2vh;
+}
+
+.profile{
+    border-radius: 100px;
+    height: 20vh;
+    width: 10vw;
+    margin-left: 1vw;
+}
+
+.lapis{
+    margin-left: 1vh;
+    height: 2vh;
+    width: 1vw;
+}
+
+.sectionOne, .sectionTwo, .sectionThree, .sectionFour{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 0;
+    border-top: 1px solid #555;
+    color: #ffffff;
+    
+}
+
+.sectionOne p, .sectionTwo button, .sectionThree, .sectionFour{
+    padding-left: 2vw;
+    font-size: 1vw;
+
+}
+.sectionTwo button {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 1vw;
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 2vw;
+    text-align: left;
+    font-family: "Inter", sans-serif;
+}
+
+.sectionThree input{
+    width: 16%;
+}
+
+.sectionFour input{
+    width: 20%;
+}
+
+
+.sectionThree input, .sectionFour input {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 5px;
+    font-size: 1vw;
+    outline: none;
+    font-family: "Inter", sans-serif;
+}
+
+.sectionThree input::placeholder, .sectionFour input::placeholder {
+    color: #ffffff;
+}
+
+
+/* -------------footer------------- */
+
+footer {
+    background-color: #404040;
+    height: 6vh;
+    width: 100vw;
+}
