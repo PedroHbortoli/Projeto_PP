@@ -58,14 +58,14 @@ main {
 .profile{
     border-radius: 100px;
     height: 20vh;
-    width: 10vw;
+    width: 9.6vw;
     margin-left: 1vw;
 }
 
 .lapis{
     margin-left: 1vh;
     height: 2vh;
-    width: 1vw;
+    width: 0.9vw;
 }
 
 .sectionOne, .sectionTwo, .sectionThree, .sectionFour{
@@ -73,9 +73,13 @@ main {
     align-items: center;
     justify-content: start;
     padding: 10px 0;
-    border-top: 1px solid #555;
+;    /* border-top: 1px solid #555; */
     color: #ffffff;
-    
+}
+
+.sectionOne p{
+    display: flex;
+    padding-bottom: 1.5vh;
 }
 
 .sectionOne p, .sectionTwo button, .sectionThree, .sectionFour{
@@ -118,6 +122,15 @@ main {
     color: #ffffff;
 }
 
+.updateButton{
+    background-color: #d64846;
+    border: 1px solid black;
+    border-radius: 100px;
+    height: 6vh;
+    width: 12vh;
+    color: #ffffff;
+    margin-top: 2vw;
+}
 
 /* -------------footer------------- */
 
