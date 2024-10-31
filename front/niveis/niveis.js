@@ -100,3 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('diarias').addEventListener('click', function() {
     window.location.href = 'tarefaDiaria.html'; // Redireciona para a página da tarefa diária
 });
+
+const next = document.getElementById("go");
+
+next.onclick = function() {
+    window.location.href = "../profile/profilePage.html";
+};

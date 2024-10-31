@@ -74,7 +74,7 @@ main {
     justify-content: start;
     padding: 10px 0;
 ;    /* border-top: 1px solid #555; */
-    color: #ffffff;
+    color: #000000;
 }
 
 .sectionOne p{
@@ -89,7 +89,7 @@ main {
 }
 .sectionTwo button {
     background-color: transparent;
-    color: #ffffff;
+    color: #000000;
     border: none;
     font-size: 1vw;
     cursor: pointer;
@@ -110,7 +110,7 @@ main {
 
 .sectionThree input, .sectionFour input {
     background-color: transparent;
-    color: #ffffff;
+    color: #000000;
     border: none;
     padding: 5px;
     font-size: 1vw;
@@ -119,7 +119,7 @@ main {
 }
 
 .sectionThree input::placeholder, .sectionFour input::placeholder {
-    color: #ffffff;
+    color: #000000;
 }
 
 .updateButton{

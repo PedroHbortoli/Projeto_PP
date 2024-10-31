@@ -84,8 +84,48 @@ async function loginUser(req, res){
     });
 }
 
+async function infoUser(req, res) {
+    const userId = req.query.id;  // Obtém o ID do usuário dos parâmetros de consulta
+
+    if (!userId) {
+        return res.status(400).json({
+            success: false,
+            message: "ID do usuário não fornecido"
+        });
+    }
+
+    const query = `
+        SELECT usuarios.nome, usuarios.email, usuarios.foto_perfil, elo_usuarios.elo
+        FROM usuarios
+        LEFT JOIN elo_usuarios ON usuarios.id = elo_usuarios.id
+        WHERE usuarios.id = ?`;
+
+    connection.query(query, [userId], (err, results) => {
+        if (err) {
+            return res.status(500).json({
+                success: false,
+                message: "Erro ao obter informações do usuário",
+                error: err
+            });
+        }
+        if (results.length > 0) {
+            res.status(200).json({
+                success: true,
+                message: "Informações do usuário obtidas com sucesso",
+                data: results[0]  // Retorna o primeiro (e único) resultado
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                message: "Usuário não encontrado"
+            });
+        }
+    });
+}
+
 module.exports = {
     storeUser,
     getUser,
-    loginUser
+    loginUser,
+    infoUser
 }

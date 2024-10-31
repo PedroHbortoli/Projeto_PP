@@ -1,11 +1,12 @@
 const { Router } = require('express');
 const router = Router();
 
-const { storeUser, getUser, loginUser } = require('../controller/userController');
+const { storeUser, getUser, loginUser, infoUser } = require('../controller/userController');
 
 router.post('/store/user', storeUser);
 router.get('/get/user', getUser);
-router.post('/login/user', loginUser); 
+router.post('/login/user', loginUser);
+router.get('/get/infoUser', infoUser);
 
 const { storeElo} = require('../controller/eloController');
 
