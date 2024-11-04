@@ -1,23 +1,22 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const userId = 'ID_DO_USUARIO';  // Substitua por um meio de obter o ID, ou obtenha de outra parte do código
+document.addEventListener('DOMContentLoaded', async () => {
+    const userId = localStorage.getItem('userId'); // Obtém o ID do usuário do localStorage
 
-    fetch(`/get/infoUser?id=${userId}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const userInfo = data.data;
-                document.querySelector(".alterName p:nth-child(1)").textContent = userInfo.nome;
-                document.querySelector(".alterName p:nth-child(2)").textContent = userInfo.email;
-                document.querySelector(".alterName p:nth-child(3)").textContent = userInfo.elo;
+    if (userId) {
+        try {
+            const response = await fetch(`http://localhost:3003/API_LogicLift/get/user?id=${userId}`);
+            const result = await response.json();
 
-                // Verifique se há uma imagem de perfil; caso não, deixe a imagem padrão
-                if (userInfo.foto_perfil) {
-                    const profileImage = document.querySelector(".profile");
-                    profileImage.src = `data:image/png;base64,${userInfo.foto_perfil}`;
-                }
+            if (result.success) {
+                document.getElementById("nome").innerHTML = result.data.nome; // Exibe o nome do usuário
             } else {
-                console.error("Erro ao obter as informações do usuário:", data.message);
+                console.error("Erro ao buscar os dados do usuário:", result.message);
+                document.getElementById("nome").innerHTML = "Usuário não identificado";
             }
-        })
-        .catch(error => console.error("Erro na requisição:", error));
-});
+        } catch (error) {
+            console.error("Erro na requisição:", error);
+            document.getElementById("nome").innerHTML = "Erro ao carregar o nome do usuário";
+        }
+    } else {
+        document.getElementById("nome").innerHTML = "Usuário não logado"; // Mensagem para quando não houver login
+    }
+});     

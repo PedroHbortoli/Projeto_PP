@@ -1,6 +1,6 @@
 const connection = require('../config/db');
 const dotenv = require('dotenv').config();
-async function storeUser(req, res){
+async function storeUser(req, res) {
 
     const params = Array(
         req.body.name,
@@ -11,10 +11,10 @@ async function storeUser(req, res){
     console.log(req.body)
 
     const query = "INSERT INTO usuarios(nome, email, senha) VALUES(?, ?, ?)";
-    
+
 
     connection.query(query, params, (err, results) => {
-        if(results){
+        if (results) {
             res
                 .status(201)
                 .json({
@@ -23,7 +23,7 @@ async function storeUser(req, res){
                     data: results
                 })
         } else {
-            res 
+            res
                 .status(400)
                 .json({
                     success: false,
@@ -45,7 +45,7 @@ async function getUser(req, res) {
     }
 
     const query = "SELECT nome FROM usuarios WHERE id = ?";
-    
+
     connection.query(query, [userId], (err, results) => {
         if (results.length > 0) {
             res.status(200).json({
@@ -62,14 +62,14 @@ async function getUser(req, res) {
     });
 }
 
-async function loginUser(req, res){
+async function loginUser(req, res) {
     const { email, password } = req.body;
 
     const query = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
     const params = [email, password];
 
     connection.query(query, params, (err, results) => {
-        if(results.length > 0){
+        if (results.length > 0) {
             res.status(200).json({
                 success: true,
                 message: "Login bem-sucedido",
@@ -95,10 +95,10 @@ async function infoUser(req, res) {
     }
 
     const query = `
-        SELECT usuarios.nome, usuarios.email, usuarios.foto_perfil, elo_usuarios.elo
-        FROM usuarios
-        LEFT JOIN elo_usuarios ON usuarios.id = elo_usuarios.id
-        WHERE usuarios.id = ?`;
+    SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.foto_perfil, elo_usuarios.elo 
+    FROM usuarios
+    LEFT JOIN elo_usuarios ON usuarios.id = elo_usuarios.id
+    WHERE usuarios.id = ?`;
 
     connection.query(query, [userId], (err, results) => {
         if (err) {
