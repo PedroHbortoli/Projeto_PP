@@ -40,9 +40,9 @@ router.post('/store/user', storeUser);
  
 /**
  * @swagger
- * /API_LogicLift/get/user
- *   post:
- *     summary: Login do usuário
+ * /API_LogicLift/get/user:
+ *   get:
+ *     summary: Pega informação do usuario
  *     description: Realiza login do usuário com email e senha.
  *     requestBody:
  *       required: true
@@ -84,10 +84,10 @@ router.get('/get/user', getUser);
 
 /**
  * @swagger
- * /API_LogicLift/store/user
- *   post:
- *     summary: Login do usuário
- *     description: Realiza login do usuário com email e senha.
+ * /API_LogicLift/login/user:
+ *   get:
+ *     summary: Pega o usuario
+ *     description: Pega o usuario
  *     requestBody:
  *       required: true
  *       content:
@@ -130,9 +130,9 @@ const { storeElo } = require('../controller/eloController');
 
 /**
  * @swagger
- * /api/highScore:
+ * /API_LogicLift/store/elo:
  *   post:
- *     summary: Pontuação máxima do usuário
+ *     summary: Armazena o elo
  *     description: Retorna a pontuação máxima do usuário em cada jogo.
  *     requestBody:
  *       required: true
@@ -168,9 +168,9 @@ const { storeNivel, getNivel } = require('../controller/nivelController');
 
 /**
  * @swagger
- * /API_LogicLift/store/nivel
+ * /API_LogicLift/store/nivel:
  *   post:
- *     summary: Pontuação máxima do usuário
+ *     summary: Armazena os níveis
  *     description: Retorna a pontuação máxima do usuário em cada jogo.
  *     requestBody:
  *       required: true
@@ -206,7 +206,7 @@ router.post('/store/nivel', storeNivel);
  * @swagger
  * /API_LogicLift/getNivel:
  *   get:
- *     summary: Pega o nível
+ *     summary: Pega os níveis
  *     description: Pega o nível no banco de dados
  *     requestBody:
  *       required: true
