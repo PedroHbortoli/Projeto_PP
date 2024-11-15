@@ -35,25 +35,48 @@ async function storeUser(req, res) {
 }
 
 async function getUser(req, res) {
-    const userId = req.query.id;  // Obtém o ID do usuário dos parâmetros de consulta
+    // Logando o parâmetro recebido na requisição
+    console.log("Requisição recebida com os parâmetros:", req.query);
+
+    const userId = req.query.id; // Obtém o ID do usuário dos parâmetros de consulta
 
     if (!userId) {
+        console.error("ID do usuário não fornecido");
         return res.status(400).json({
             success: false,
             message: "ID do usuário não fornecido"
         });
     }
 
-    const query = "SELECT nome FROM usuarios WHERE id = ?";
+    console.log("ID do usuário recebido:", userId);
+
+    const query = `
+    SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.foto_perfil, elo_usuarios.elo 
+    FROM usuarios
+    LEFT JOIN elo_usuarios ON usuarios.id = elo_usuarios.id
+    WHERE usuarios.id = ?`;
 
     connection.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error("Erro ao executar a consulta:", err);
+            return res.status(500).json({
+                success: false,
+                message: "Erro interno no servidor"
+            });
+        }
+
+        // Logando os resultados da consulta
+        console.log("Resultados da consulta:", results);
+
         if (results.length > 0) {
+            console.log("Usuário encontrado:", results[0]);
             res.status(200).json({
                 success: true,
                 message: "Sucesso",
-                data: results[0]  // Retorna o primeiro (e esperado único) resultado
+                data: results[0] // Retorna o primeiro (e esperado único) resultado
             });
         } else {
+            console.warn("Usuário não encontrado com o ID:", userId);
             res.status(404).json({
                 success: false,
                 message: "Usuário não encontrado"
@@ -84,48 +107,9 @@ async function loginUser(req, res) {
     });
 }
 
-async function infoUser(req, res) {
-    const userId = req.query.id;  // Obtém o ID do usuário dos parâmetros de consulta
-
-    if (!userId) {
-        return res.status(400).json({
-            success: false,
-            message: "ID do usuário não fornecido"
-        });
-    }
-
-    const query = `
-    SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.foto_perfil, elo_usuarios.elo 
-    FROM usuarios
-    LEFT JOIN elo_usuarios ON usuarios.id = elo_usuarios.id
-    WHERE usuarios.id = ?`;
-
-    connection.query(query, [userId], (err, results) => {
-        if (err) {
-            return res.status(500).json({
-                success: false,
-                message: "Erro ao obter informações do usuário",
-                error: err
-            });
-        }
-        if (results.length > 0) {
-            res.status(200).json({
-                success: true,
-                message: "Informações do usuário obtidas com sucesso",
-                data: results[0]  // Retorna o primeiro (e único) resultado
-            });
-        } else {
-            res.status(404).json({
-                success: false,
-                message: "Usuário não encontrado"
-            });
-        }
-    });
-}
 
 module.exports = {
     storeUser,
     getUser,
-    loginUser,
-    infoUser
+    loginUser
 }

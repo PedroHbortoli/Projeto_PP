@@ -7,16 +7,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             const result = await response.json();
 
             if (result.success) {
-                document.getElementById("nome").innerHTML = result.data.nome; // Exibe o nome do usuário
+                // Exibe os dados nos elementos da página
+                document.getElementById("userName").innerText = result.data.nome;
+                document.getElementById("emailUser").innerText = result.data.email;
+                document.getElementById("eloUser").innerText = result.data.elo;
+                document.querySelector(".profile").src = result.data.foto_perfil || "../../assets/profile-photo.png";
             } else {
                 console.error("Erro ao buscar os dados do usuário:", result.message);
-                document.getElementById("nome").innerHTML = "Usuário não identificado";
             }
         } catch (error) {
             console.error("Erro na requisição:", error);
-            document.getElementById("nome").innerHTML = "Erro ao carregar o nome do usuário";
         }
     } else {
-        document.getElementById("nome").innerHTML = "Usuário não logado"; // Mensagem para quando não houver login
+        console.warn("Usuário não logado");
     }
-});     
+});
