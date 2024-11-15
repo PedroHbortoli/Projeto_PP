@@ -107,9 +107,40 @@ async function loginUser(req, res) {
     });
 }
 
+async function updateUser(req, res) {
+    const { id, nome, foto_perfil, senha } = req.body;
+
+    const updates = [];
+    if (nome) updates.push({ column: 'nome', value: nome });
+    if (foto_perfil) updates.push({ column: 'foto_perfil', value: foto_perfil });
+    if (senha) updates.push({ column: 'senha', value: senha });
+
+    if (updates.length === 0) {
+        return res.status(400).json({
+            success: false,
+            message: "Nenhuma atualização fornecida"
+        });
+    }
+
+    const query = `
+        UPDATE usuarios 
+        SET ${updates.map(u => `${u.column} = ?`).join(', ')} 
+        WHERE id = ?`;
+
+    const params = [...updates.map(u => u.value), id];
+
+    connection.query(query, params, (err, results) => {
+        if (err) {
+            console.error("Erro ao atualizar os dados:", err);
+            return res.status(500).json({ success: false, message: "Erro interno no servidor" });
+        }
+        res.status(200).json({ success: true, message: "Dados atualizados com sucesso" });
+    });
+}
 
 module.exports = {
     storeUser,
     getUser,
-    loginUser
+    loginUser,
+    updateUser
 }

@@ -68,7 +68,7 @@ main {
     width: 0.9vw;
 }
 
-.sectionOne, .sectionTwo, .sectionThree, .sectionFour{
+.sectionOne, .sectionTwo, .sectionThree, .sectionFour, .sectionFive{
     display: flex;
     align-items: center;
     justify-content: start;
@@ -82,7 +82,7 @@ main {
     padding-bottom: 1.5vh;
 }
 
-.sectionOne p, .sectionTwo button, .sectionThree, .sectionFour{
+.sectionOne p, .sectionTwo button, .sectionThree, .sectionFour, .sectionFive{
     padding-left: 2vw;
     font-size: 1vw;
 
@@ -107,8 +107,11 @@ main {
     width: 20%;
 }
 
+.sectionFive input{
+    width: 21%;
+}
 
-.sectionThree input, .sectionFour input {
+.sectionThree input, .sectionFour input, .sectionFive input {
     background-color: transparent;
     color: #000000;
     border: none;
@@ -118,7 +121,7 @@ main {
     font-family: "Inter", sans-serif;
 }
 
-.sectionThree input::placeholder, .sectionFour input::placeholder {
+.sectionThree input::placeholder, .sectionFour input::placeholder, .sectionFive input::placeholder{
     color: #000000;
 }
 
