@@ -36,7 +36,7 @@ async function storeUser(req, res) {
 
 async function getUser(req, res) {
     // Logando o parâmetro recebido na requisição
-    console.log("Requisição recebida com os parâmetros:", req.query);
+    // console.log("Requisição recebida com os parâmetros:", req.query);
 
     const userId = req.query.id; // Obtém o ID do usuário dos parâmetros de consulta
 
@@ -48,7 +48,7 @@ async function getUser(req, res) {
         });
     }
 
-    console.log("ID do usuário recebido:", userId);
+    // console.log("ID do usuário recebido:", userId);
 
     const query = `
     SELECT usuarios.id, usuarios.nome, usuarios.email, usuarios.foto_perfil, elo_usuarios.elo 
@@ -66,17 +66,17 @@ async function getUser(req, res) {
         }
 
         // Logando os resultados da consulta
-        console.log("Resultados da consulta:", results);
+        // console.log("Resultados da consulta:", results);
 
         if (results.length > 0) {
-            console.log("Usuário encontrado:", results[0]);
+            // console.log("Usuário encontrado:", results[0]);
             res.status(200).json({
                 success: true,
                 message: "Sucesso",
                 data: results[0] // Retorna o primeiro (e esperado único) resultado
             });
         } else {
-            console.warn("Usuário não encontrado com o ID:", userId);
+            // console.warn("Usuário não encontrado com o ID:", userId);
             res.status(404).json({
                 success: false,
                 message: "Usuário não encontrado"
@@ -202,10 +202,70 @@ const getImage = (req, res) => {
     });
 };
 
+async function updateTutorial(req, res) {
+    const { userId, tutorial } = req.body;
+
+    const query = "UPDATE usuarios SET tutorial = ? WHERE id = ?";
+    const params = [tutorial, userId];
+
+    connection.query(query, params, (err, results) => {
+        if (err) {
+            return res.status(400).json({
+                success: false,
+                message: "Erro ao atualizar status do tutorial",
+                sql: err,
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Status do tutorial atualizado com sucesso",
+        });
+    });
+}
+
+async function checkTutorial(req, res) {
+    const { userId } = req.query;
+
+    if (!userId) {
+        return res.status(400).json({
+            success: false,
+            message: "ID do usuário não fornecido",
+        });
+    }
+
+    const query = "SELECT tutorial FROM usuarios WHERE id = ?";
+    connection.query(query, [userId], (err, results) => {
+        if (err) {
+            return res.status(500).json({
+                success: false,
+                message: "Erro ao buscar status do tutorial",
+                sql: err,
+            });
+        }
+
+        if (results.length > 0) {
+            res.status(200).json({
+                success: true,
+                message: "Status do tutorial recuperado com sucesso",
+                data: results[0].tutorial,
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                message: "Usuário não encontrado",
+            });
+        }
+    });
+}
+
+
 module.exports = {
     storeUser,
     getUser,
     loginUser,
     updateUser,
-    getImage
+    getImage,
+    updateTutorial,
+    checkTutorial
 }
