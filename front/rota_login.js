@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     nomeElement.innerHTML = "Usuário não identificado";
                 }
             } else {
-                console.warn('Elemento com id="nome" não encontrado no DOM.');
+                
             }
         } catch (error) {
             console.error("Erro na requisição:", error);
