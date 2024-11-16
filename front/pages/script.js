@@ -59,7 +59,7 @@ function validateAnswer(stepForm) {
         
             console.log('Chamando sendTutorialCompletion...');
             sendTutorialCompletion(true); // Envia status ao concluir
-            // window.location.href = "./revelacao/revelacao.html";
+            window.location.href = "./revelacao/revelacao.html";
             break;
     }
 }

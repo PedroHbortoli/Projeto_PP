@@ -1,6 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
     const loginButton = document.querySelector('.button');
 
+    document.addEventListener('DOMContentLoaded', async () => {
+        const userId = localStorage.getItem('userId'); // Obtém o ID do usuário do localStorage
+    
+        if (userId) {
+            try {
+                const response = await fetch(`http://localhost:3003/API_LogicLift/get/user?id=${userId}`);
+                const result = await response.json();
+    
+                const nomeElement = document.getElementById("nome"); // Verifica se o elemento existe
+                if (nomeElement) {
+                    if (result.success) {
+                        nomeElement.innerHTML = result.data.nome || "Usuário não identificado"; // Exibe o nome do usuário
+                    } else {
+                        console.error("Erro ao buscar os dados do usuário:", result.message);
+                        nomeElement.innerHTML = "Usuário não identificado";
+                    }
+                } else {
+                    console.warn('Elemento com id="nome" não encontrado no DOM.');
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+                const nomeElement = document.getElementById("nome"); // Garantir que só tenta acessar se existir
+                if (nomeElement) {
+                    nomeElement.innerHTML = "Erro ao carregar o nome do usuário";
+                }
+            }
+        } else {
+            const nomeElement = document.getElementById("nome"); // Garantir que só tenta acessar se existir
+            if (nomeElement) {
+                nomeElement.innerHTML = "Usuário não logado"; // Mensagem para quando não houver login
+            } else {
+                console.warn('Elemento com id="nome" não encontrado no DOM.');
+            }
+        }
+    });
+
     loginButton.addEventListener('click', async function () {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
@@ -24,11 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (tutorialResult.success) {
                 if (tutorialResult.data === 'completed') {
-                    // Redirecionar para a página de níveis
                     window.location.href = './niveis/niveis.html';
                 } else {
-                    // Redirecionar diretamente para o tutorial
-                    window.location.href = './tutorial/tutorial.html';
+                    window.location.href = './BemVindo.html';
                 }
             } else {
                 console.error('Erro ao verificar status do tutorial:', tutorialResult.message);
@@ -37,41 +71,5 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Credenciais inválidas, tente novamente.');
         }
     });
-});
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const userId = localStorage.getItem('userId'); // Obtém o ID do usuário do localStorage
-
-    if (userId) {
-        try {
-            const response = await fetch(`http://localhost:3003/API_LogicLift/get/user?id=${userId}`);
-            const result = await response.json();
-
-            const nomeElement = document.getElementById("nome"); // Verifica se o elemento existe
-            if (nomeElement) {
-                if (result.success) {
-                    nomeElement.innerHTML = result.data.nome || "Usuário não identificado"; // Exibe o nome do usuário
-                } else {
-                    console.error("Erro ao buscar os dados do usuário:", result.message);
-                    nomeElement.innerHTML = "Usuário não identificado";
-                }
-            } else {
-                
-            }
-        } catch (error) {
-            console.error("Erro na requisição:", error);
-            const nomeElement = document.getElementById("nome"); // Garantir que só tenta acessar se existir
-            if (nomeElement) {
-                nomeElement.innerHTML = "Erro ao carregar o nome do usuário";
-            }
-        }
-    } else {
-        const nomeElement = document.getElementById("nome"); // Garantir que só tenta acessar se existir
-        if (nomeElement) {
-            nomeElement.innerHTML = "Usuário não logado"; // Mensagem para quando não houver login
-        } else {
-            console.warn('Elemento com id="nome" não encontrado no DOM.');
-        }
-    }
 });
 

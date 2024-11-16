@@ -228,6 +228,7 @@ async function checkTutorial(req, res) {
     const { userId } = req.query;
 
     if (!userId) {
+        console.error("ID do usuário não fornecido.");
         return res.status(400).json({
             success: false,
             message: "ID do usuário não fornecido",
@@ -237,6 +238,7 @@ async function checkTutorial(req, res) {
     const query = "SELECT tutorial FROM usuarios WHERE id = ?";
     connection.query(query, [userId], (err, results) => {
         if (err) {
+            console.error("Erro ao buscar status do tutorial:", err);
             return res.status(500).json({
                 success: false,
                 message: "Erro ao buscar status do tutorial",
@@ -245,12 +247,14 @@ async function checkTutorial(req, res) {
         }
 
         if (results.length > 0) {
+            console.log("Status do tutorial recuperado:", results[0].tutorial);
             res.status(200).json({
                 success: true,
                 message: "Status do tutorial recuperado com sucesso",
                 data: results[0].tutorial,
             });
         } else {
+            console.warn("Usuário não encontrado com o ID:", userId);
             res.status(404).json({
                 success: false,
                 message: "Usuário não encontrado",
