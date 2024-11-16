@@ -5,6 +5,22 @@ nivel1Btn.onclick = function() {
     window.location.href = "./base.html";
 };
 
+// Obtém o ID do usuário do localStorage
+const userId = localStorage.getItem('userId');
+
+// Atualiza a imagem de perfil no botão com ID 'go'
+if (userId) {
+    const imageUrl = `http://localhost:3003/API_LogicLift/getImage/${userId}`;
+    const goProfileImage = document.getElementById("go");
+
+    if (goProfileImage) {
+        goProfileImage.src = imageUrl; // Define o src para o URL da imagem
+        console.log("Imagem de perfil carregada no botão 'go':", imageUrl);
+    } else {
+        console.warn("Elemento com ID 'go' não encontrado.");
+    }
+}
+
 // Verifica se os níveis anteriores foram completados para desbloquear os próximos níveis
 document.addEventListener('DOMContentLoaded', function() {
     const nivel1Completado = localStorage.getItem('nivel1Completado') === 'true';
