@@ -47,18 +47,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     saveButton.addEventListener('click', async () => {
         await saveChanges(userId);
+        // Após salvar, recarrega a página
+        window.location.reload();
     });
 });
-
-const profileImage = document.querySelector(".profile");
-if (result.data.foto_perfil) {
-    const imageUrl = `http://localhost:3003/getImage/${userId}`;
-    console.log("URL da imagem de perfil:", imageUrl); // Log do URL da imagem
-    profileImage.src = imageUrl;
-} else {
-    profileImage.src = "../../assets/profile-photo.png"; // Imagem padrão
-    console.log("Imagem padrão atribuída.");
-}
 
 async function saveChanges(userId) {
     const nome = document.querySelector(".sectionThree input").value;

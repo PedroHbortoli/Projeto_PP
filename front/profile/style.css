@@ -58,7 +58,7 @@ main {
 .profile{
     border-radius: 100px;
     height: 20vh;
-    width: 9.6vw;
+    width: 10vw;
     margin-left: 1vw;
 }
 
@@ -133,6 +133,18 @@ main {
     width: 12vh;
     color: #ffffff;
     margin-top: 2vw;
+}
+
+.sectionSix #saveChanges {
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 2vh;
+    background-color:#d64846;
+    color: #ffffff;
+    height: 4vh;
+    width: 10vw;
+    margin: 1.5vh;
+    border-radius: 20vh;
+    margin-top: 7vh;
 }
 
 /* -------------footer------------- */
