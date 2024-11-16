@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { storeUser, getUser, loginUser, updateUser} = require('../controller/userController');
+const { storeUser, getUser, loginUser, updateUser, getImage} = require('../controller/userController');
 
 /**
 * @swagger
@@ -127,6 +127,8 @@ router.get('/get/user', getUser);
 router.post('/login/user', loginUser);
 
 router.put('/update/user', updateUser);
+
+router.get('/getImage/:id', getImage);
 
 const { storeElo } = require('../controller/eloController');
 

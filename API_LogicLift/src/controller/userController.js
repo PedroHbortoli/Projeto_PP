@@ -107,13 +107,49 @@ async function loginUser(req, res) {
     });
 }
 
+const path = require('path');
+const fs = require('fs');
+
 async function updateUser(req, res) {
-    const { id, nome, foto_perfil, senha } = req.body;
+    const { id, nome, senha } = req.body;
+    const file = req.files && req.files.foto_perfil;
+
+    if (!id) {
+        return res.status(400).json({
+            success: false,
+            message: "ID do usuário não fornecido"
+        });
+    }
 
     const updates = [];
     if (nome) updates.push({ column: 'nome', value: nome });
-    if (foto_perfil) updates.push({ column: 'foto_perfil', value: foto_perfil });
     if (senha) updates.push({ column: 'senha', value: senha });
+
+    let fileData = null;
+
+    // Processar o arquivo se houver
+    if (file) {
+        console.log("Processando o arquivo de upload...");
+
+        try {
+            // Para armazenar como caminho da imagem:
+            // const fileName = `profile_${id}_${Date.now()}${path.extname(file.name)}`;
+            // const uploadPath = path.join(__dirname, 'uploads', fileName);
+            // await file.mv(uploadPath);
+            // fileData = `/uploads/${fileName}`;
+
+            // Para armazenar como BLOB:
+            fileData = file.data; // Dados binários da imagem
+            updates.push({ column: 'foto_perfil', value: fileData });
+            console.log("Imagem processada com sucesso.");
+        } catch (err) {
+            console.error("Erro ao processar a imagem:", err);
+            return res.status(500).json({
+                success: false,
+                message: "Erro ao salvar a imagem"
+            });
+        }
+    }
 
     if (updates.length === 0) {
         return res.status(400).json({
@@ -131,16 +167,45 @@ async function updateUser(req, res) {
 
     connection.query(query, params, (err, results) => {
         if (err) {
-            console.error("Erro ao atualizar os dados:", err);
-            return res.status(500).json({ success: false, message: "Erro interno no servidor" });
+            console.error("Erro ao atualizar os dados no banco:", err);
+            return res.status(500).json({ success: false, message: "Erro ao atualizar os dados no banco" });
         }
-        res.status(200).json({ success: true, message: "Dados atualizados com sucesso" });
+
+        res.status(200).json({
+            success: true,
+            message: "Dados atualizados com sucesso"
+        });
     });
 }
+
+
+const getImage = (req, res) => {
+    const { id } = req.params;
+
+    const query = "SELECT foto_perfil FROM usuarios WHERE id = ?";
+    connection.query(query, [id], (err, results) => {
+        if (err) {
+            console.error("Erro ao buscar a imagem:", err);
+            return res.status(500).json({ message: "Erro interno ao buscar a imagem" });
+        }
+
+        if (results.length === 0 || !results[0].foto_perfil) {
+            return res.status(404).json({ message: "Imagem não encontrada" });
+        }
+
+        const imageBuffer = results[0].foto_perfil;
+
+        // Verifica o tipo do arquivo dinamicamente (assumindo que você está armazenando o tipo)
+        const fileType = "image/jpeg"; // Altere para o tipo armazenado no banco, se aplicável
+        res.setHeader('Content-Type', fileType);
+        res.send(imageBuffer);
+    });
+};
 
 module.exports = {
     storeUser,
     getUser,
     loginUser,
-    updateUser
+    updateUser,
+    getImage
 }

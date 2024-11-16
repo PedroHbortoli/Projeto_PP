@@ -1,24 +1,26 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const userId = localStorage.getItem('userId'); // Obtém o ID do usuário do localStorage
+    console.log("ID do usuário:", userId); // Log para verificar se o userId existe
 
     if (userId) {
         try {
             const response = await fetch(`http://localhost:3003/API_LogicLift/get/user?id=${userId}`);
-            const result = await response.json();
+            const result = await response.json(); // Garante que result está definido após o fetch
+            console.log("Dados recebidos:", result); // Log para verificar os dados recebidos
 
             if (result.success) {
-                // Preenche os campos com os dados do usuário
-                document.querySelector(".sectionThree input").value = result.data.nome;
-                document.querySelector(".sectionFour input").value = ""; // Limpa o campo de senha
-                document.querySelector(".sectionFive input").value = ""; // Limpa o campo de confirmação de senha
-                document.querySelector(".profile").src = result.data.foto_perfil || "../../assets/profile-photo.png";
+                // Exibe os dados nos elementos da página
+                document.getElementById("userName").innerText = result.data.nome || "Nome não disponível";
+                document.getElementById("emailUser").innerText = result.data.email || "Email não disponível";
+                document.getElementById("eloUser").innerText = result.data.elo || "Elo não disponível";
 
-                // Atualiza os spans de exibição
-                document.getElementById("userName").innerText = result.data.nome;
-                document.getElementById("emailUser").innerText = result.data.email;
-                document.getElementById("eloUser").innerText = result.data.elo;
+                // Atualiza a imagem de perfil
+                const profileImage = document.querySelector(".profile");
+                const imageUrl = `http://localhost:3003/API_LogicLift/getImage/${userId}`;
+                console.log("URL da imagem de perfil:", imageUrl); // Log do URL da imagem
+                profileImage.src = imageUrl;
             } else {
-                console.error("Erro ao buscar os dados do usuário:", result.message);
+                console.error("Erro ao buscar os dados:", result.message);
             }
         } catch (error) {
             console.error("Erro na requisição:", error);
@@ -27,38 +29,59 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.warn("Usuário não logado");
     }
 
-    // Adiciona o evento ao botão de salvar alterações
-    document.getElementById('saveChanges').addEventListener('click', () => {
-        saveChanges(userId);
+    document.getElementById('changePhotoButton').addEventListener('click', () => {
+        document.getElementById('profilePhotoInput').click();
+    });
+
+    // Inicialmente, esconde o botão "Salvar Alterações"
+    const saveButton = document.getElementById('saveChanges');
+    saveButton.style.display = 'none';
+
+    // Mostra o botão "Salvar Alterações" apenas se alguma alteração for feita
+    const inputs = document.querySelectorAll(".sectionThree input, .sectionFour input, .sectionFive input, #profilePhotoInput");
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            saveButton.style.display = 'inline-block'; // Mostra o botão
+        });
+    });
+
+    saveButton.addEventListener('click', async () => {
+        await saveChanges(userId);
     });
 });
+
+const profileImage = document.querySelector(".profile");
+if (result.data.foto_perfil) {
+    const imageUrl = `http://localhost:3003/getImage/${userId}`;
+    console.log("URL da imagem de perfil:", imageUrl); // Log do URL da imagem
+    profileImage.src = imageUrl;
+} else {
+    profileImage.src = "../../assets/profile-photo.png"; // Imagem padrão
+    console.log("Imagem padrão atribuída.");
+}
 
 async function saveChanges(userId) {
     const nome = document.querySelector(".sectionThree input").value;
     const senha = document.querySelector(".sectionFour input").value;
-    const confirmarSenha = document.querySelector(".sectionFive input").value;
+    const photoFile = document.getElementById('profilePhotoInput').files[0];
 
-    if (senha && senha !== confirmarSenha) {
-        alert("As senhas não coincidem!");
-        return;
-    }
-
-    const updates = { id: userId };
-    if (nome) updates.nome = nome;
-    if (senha) updates.senha = senha;
+    const formData = new FormData();
+    formData.append('id', userId);
+    if (nome) formData.append('nome', nome);
+    if (senha) formData.append('senha', senha);
+    if (photoFile) formData.append('foto_perfil', photoFile);
 
     try {
         const response = await fetch(`http://localhost:3003/API_LogicLift/update/user`, {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updates)
+            body: formData
         });
 
         const result = await response.json();
+        console.log("Resultado da atualização:", result);
 
         if (result.success) {
             alert("Dados atualizados com sucesso!");
-            location.reload(); // Recarrega a página para exibir os dados atualizados
         } else {
             console.error("Erro ao atualizar os dados:", result.message);
         }
@@ -66,4 +89,3 @@ async function saveChanges(userId) {
         console.error("Erro na requisição:", error);
     }
 }
- 
