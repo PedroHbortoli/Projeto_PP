@@ -251,7 +251,7 @@ router.post('/post/tutorial', updateTutorial);
 
 router.get('/check/tutorial', checkTutorial);
 
-const { storeElo } = require('../controller/eloController');
+const { storeElo, updateXP, getAllUsers } = require('../controller/eloController');
 
 /**
  * @swagger
@@ -287,6 +287,93 @@ const { storeElo } = require('../controller/eloController');
  */
 
 router.post('/store/elo', storeElo)
+
+/**
+ * @swagger
+ * /API_LogicLift/updateXP:
+ *   post:
+ *     summary: Atualizar XP do usuário
+ *     description: Incrementa o XP do usuário com base no ID.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               usuarioId:
+ *                 type: integer
+ *                 example: 1
+ *               xpAdicional:
+ *                 type: integer
+ *                 example: 20
+ *     responses:
+ *       200:
+ *         description: XP atualizado com sucesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ */
+
+router.post('/updateXP', updateXP);
+
+/**
+ * @swagger
+ * /getUsers:
+ *   get:
+ *     summary: Obter todos os usuários
+ *     description: Retorna uma lista de todos os usuários com seus elos e XP.
+ *     tags:
+ *       - Usuários
+ *     responses:
+ *       200:
+ *         description: Lista de usuários retornada com sucesso.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                     example: 1
+ *                     description: ID único do usuário.
+ *                   nome:
+ *                     type: string
+ *                     example: "João Silva"
+ *                     description: Nome completo do usuário.
+ *                   email:
+ *                     type: string
+ *                     example: "joao.silva@email.com"
+ *                     description: Endereço de email do usuário.
+ *                   xp_usuario:
+ *                     type: integer
+ *                     example: 150
+ *                     description: Quantidade de XP do usuário.
+ *                   elo:
+ *                     type: string
+ *                     example: "bronze"
+ *                     description: Elo atual do usuário.
+ *       500:
+ *         description: Erro interno no servidor.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Erro ao buscar os usuários."
+ */
+router.get('/getUsers', getAllUsers);
+
 
 const { storeNivel, getNivel } = require('../controller/nivelController');
 

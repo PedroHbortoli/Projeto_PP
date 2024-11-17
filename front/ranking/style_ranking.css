@@ -65,6 +65,93 @@ main {
     max-width: 50vw;
 }
 
+/* Estrutura do Hub */
+.hub-container {
+    width: 80%;
+    margin: 2rem auto;
+    background-color: #404040;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hub-elos {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 2px solid #d64846; /* Divisão */
+}
+
+.hub-elo {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #191919;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hub-elo:hover {
+    background-color: #d64846;
+}
+
+/* Conteúdo Dinâmico */
+.hub-content {
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.hub-user {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    border-bottom: 1px solid #555;
+}
+
+.hub-user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    margin-right: 1rem;
+}
+
+.hub-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hub-user-info .position {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d64846;
+}
+
+.hub-user-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* XP no lado direito */
+.hub-user-xp {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #d64846;
+    text-align: right;
+}
+
 .style-text {
     font-size: 8vh;
     font-weight: bold;
@@ -99,71 +186,10 @@ main {
     max-width: 50vw;
 }
 
-.level {
-    color: #ffffff;
-    background-color: #404040;
-    height: 14vh;
-    width: 7vw;
-    font-size: 3vh;
-    border-radius: 100px;
-    gap: 20vh;
-    max-width: 14vh;
-    max-height: 7vw;
-}
-
-.level:hover {
-    background-color: #333333;
-}
-
-.task {
-    background-color: #404040;
-    font-size: 2vh;
-    color: #ffffff;
-    height: 5vh;
-    width: 9vw;
-    border-radius: 20vh;
-    margin-bottom: 3vh;
-}
-.task_rank {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #404040;
-    font-size: 2vh;
-    color: #ffffff;
-    height: 5vh;
-    width: 9vw;
-    border-radius: 20vh;
-    margin-bottom: 3vh;
-}
-
-.task_rank:hover {
-    background-color: #333333;
-}
-
-
-.task:hover {
-    background-color: #333333;
-}
-
 img {
     height: 8vh;
     width: 4vw;
     color: #ffffff;
-}
-
-.fade-out {
-    animation: fadeOut 1s forwards;
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
 }
 
 /* -------------footer------------- */

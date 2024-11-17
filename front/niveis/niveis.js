@@ -122,3 +122,14 @@ const next = document.getElementById("go");
 next.onclick = function() {
     window.location.href = "../profile/profilePage.html";
 };
+
+const goRanking = document.getElementById("go_ranking");
+
+if (goRanking) {
+    goRanking.onclick = function () {
+        console.log("Redirecionando para a página de ranking.");
+        window.location.href = "../ranking/ranking.html"; // Caminho correto para a pasta de ranking
+    };
+} else {
+    console.warn('Elemento com ID "go_ranking" não encontrado.');
+}

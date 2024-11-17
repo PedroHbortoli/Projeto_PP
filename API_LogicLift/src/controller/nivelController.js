@@ -40,6 +40,7 @@ async function getNivel(req, res) {
         SELECT 
             pergunta.id_perguntas AS id, 
             pergunta.ds_descricao AS descricao,
+            pergunta.ds_dificuldade AS dificuldade, -- Adiciona a dificuldade
             resposta.ds_resposta AS texto,
             CASE WHEN resposta.ds_certo = 'V' THEN true ELSE false END AS correta
         FROM 
@@ -74,12 +75,16 @@ async function getNivel(req, res) {
                 acc.push({
                     id: row.id,
                     descricao: row.descricao,
+                    dificuldade: row.dificuldade, // Inclui dificuldade no retorno
                     respostas: [resposta]
                 });
             }
 
             return acc;
         }, []);
+
+        // Log para verificar os dados recuperados
+        // console.log("Dados recuperados:", JSON.stringify(data, null, 2));
 
         res.status(200).json({
             success: true,

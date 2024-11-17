@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>LogicLift</title>
+    <link rel="stylesheet" href="./style_ranking.css">
+</head>
+
+<body>
+
+    <header>
+
+        <button id="back" class="back-button">Back</button>
+
+    </header>
+
+    <main>
+        <div class="hub-container">
+            <!-- Linha de botões dos elos -->
+            <div class="hub-elos">
+                <div class="hub-elo" data-elo="ferro">Ferro</div>
+                <div class="hub-elo" data-elo="bronze">Bronze</div>
+                <div class="hub-elo" data-elo="prata">Prata</div>
+                <div class="hub-elo" data-elo="diamante">Diamante</div>
+                <div class="hub-elo" data-elo="platina">Platina</div>
+                <div class="hub-elo" data-elo="esmeralda">Esmeralda</div>
+            </div>
+
+            <!-- Conteúdo dinâmico dos usuários -->
+            <div class="hub-content" id="hub-content">
+                <!-- Os usuários de cada elo serão carregados dinamicamente -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+        <div></div>
+    </footer>
+    <script src="../navegador.js"></script>
+    <script src="./script_ranking.js"></script>
+</body>
+
+</html>
