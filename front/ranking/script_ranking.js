@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function loadUsers(elo) {
         hubContent.innerHTML = ""; // Limpa o conteúdo anterior
+
         try {
             const response = await fetch(`http://localhost:3003/API_LogicLift/getUsers?elo=${elo}`);
             const data = await response.json();
@@ -36,11 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     eloButtons.forEach(button => {
         button.addEventListener("click", () => {
+            // Remove a classe 'selected' de todos os botões
+            eloButtons.forEach(btn => btn.classList.remove("selected"));
+            
+            // Adiciona a classe 'selected' no botão clicado
+            button.classList.add("selected");
+
             const elo = button.dataset.elo;
             loadUsers(elo);
         });
     });
 
-    // Carrega os usuários do primeiro elo por padrão (ferro)
-    loadUsers("ferro");
+    // Carrega os usuários do primeiro elo por padrão (ferro) e marca o botão como selecionado
+    const defaultButton = document.querySelector('[data-elo="ferro"]');
+    if (defaultButton) {
+        defaultButton.classList.add("selected");
+        loadUsers("ferro");
+    }
 });

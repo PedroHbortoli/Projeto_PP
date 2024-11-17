@@ -97,6 +97,13 @@ main {
     transition: background-color 0.3s ease;
 }
 
+.hub-elo.selected {
+    background-color: #d64846; /* Vermelho */
+    color: white; /* Mantém o texto legível */
+    font-weight: bold;
+    border: 2px solid #d64846; /* Opcional, para dar mais destaque */
+}
+
 .hub-elo:hover {
     background-color: #d64846;
 }
@@ -185,6 +192,8 @@ main {
     margin-top: 7vh;
     max-width: 50vw;
 }
+
+
 
 img {
     height: 8vh;
