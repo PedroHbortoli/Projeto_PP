@@ -55,7 +55,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function saveChanges(userId) {
     const nome = document.querySelector(".sectionThree input").value;
     const senha = document.querySelector(".sectionFour input").value;
+    const confirmarSenha = document.querySelector(".sectionFive input").value;
     const photoFile = document.getElementById('profilePhotoInput').files[0];
+
+    // Validação para senhas diferentes
+    if (senha && senha !== confirmarSenha) {
+        alert("As senhas não coincidem. Por favor, verifique.");
+        return;
+    }
 
     const formData = new FormData();
     formData.append('id', userId);

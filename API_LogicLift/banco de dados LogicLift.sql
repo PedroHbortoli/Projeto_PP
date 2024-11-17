@@ -1,29 +1,41 @@
 CREATE DATABASE logicLift;
 USE logicLift;
 
-CREATE TABLE usuarios(
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(255) NOT NULL,
+-- Tabela de usuários
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
     foto_perfil LONGBLOB,
+    xp_usuario INT DEFAULT '0',
+    tutorial VARCHAR(255) DEFAULT 'incomplete'
+);
+
+-- Tabela de elo dos usuários
+CREATE TABLE elo_usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     xp_usuario INT,
-    tutorial VARCHAR (255) DEFAULT 'incomplete'
+    elo ENUM ('ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda') DEFAULT 'ferro',
+    FOREIGN KEY (id) REFERENCES usuarios(id) -- Relaciona o elo ao usuário
 );
 
-CREATE TABLE elo_usuarios(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	elo ENUM ('ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda')
-    DEFAULT 'ferro',
-	FOREIGN KEY (id) REFERENCES usuarios(id)
-);
+-- Adiciona índice para permitir referência na coluna xp_usuario
+CREATE INDEX idx_xp_usuario ON elo_usuarios(xp_usuario);
 
+ALTER TABLE usuarios
+ADD CONSTRAINT fk_xp_usuario
+FOREIGN KEY (xp_usuario)
+REFERENCES elo_usuarios(xp_usuario);
+
+-- Tabela de perguntas
 CREATE TABLE pergunta (
     id_perguntas INT AUTO_INCREMENT PRIMARY KEY,
     ds_descricao VARCHAR(255),
     ds_dificuldade VARCHAR(255)
 );
 
+-- Tabela de respostas
 CREATE TABLE resposta (
     id_respostas INT AUTO_INCREMENT PRIMARY KEY,
     id_pergunta INT,
@@ -32,6 +44,7 @@ CREATE TABLE resposta (
     FOREIGN KEY (id_pergunta) REFERENCES pergunta(id_perguntas)
 );
 
+-- Tabela de respostas realizadas
 CREATE TABLE respostas_realizadas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
@@ -74,103 +87,103 @@ VALUES
 INSERT INTO resposta (id_pergunta, ds_resposta, ds_certo)
 VALUES
 -- Respostas para Pergunta 1
-(1, 'Para lugar nenhum, trens elétricos não produzem fumaça.', 'V'),
-(1, 'Para o norte, seguindo o trem.', 'F'),
-(1, 'Para o sul, contra o trem.', 'F'),
+(1, 'Para lugar nenhum, trens elétricos não produzem fumaça', 'V'),
+(1, 'Para o norte, seguindo o trem', 'F'),
+(1, 'Para o sul, contra o trem', 'F'),
 
 -- Respostas para Pergunta 2
-(2, 'Ligar um, esperar, ligar outro, desligar e entrar.', 'V'),
-(2, 'Ligar os três e entrar.', 'F'),
-(2, 'Entrar e testar um por um.', 'F'),
+(2, 'Ligar um, esperar, ligar outro, desligar e entrar', 'V'),
+(2, 'Ligar os três e entrar', 'F'),
+(2, 'Entrar e testar um por um', 'F'),
 
 -- Respostas para Pergunta 3
-(3, 'São avô, pai e filho.', 'V'),
-(3, 'Comeram apenas metade de cada hambúrguer.', 'F'),
-(3, 'É um erro lógico.', 'F'),
+(3, 'São avô, pai e filho', 'V'),
+(3, 'Comeram apenas metade de cada hambúrguer', 'F'),
+(3, 'É um erro lógico', 'F'),
 
 -- Respostas para Pergunta 4
-(4, 'Queima uma corda nas duas pontas e outra em uma ponta.', 'V'),
-(4, 'Corta as cordas ao meio.', 'F'),
-(4, 'Queima as cordas em lados opostos.', 'F'),
+(4, 'Queima uma corda nas duas pontas e outra em uma ponta', 'V'),
+(4, 'Corta as cordas ao meio', 'F'),
+(4, 'Queima as cordas em lados opostos', 'F'),
 
 -- Respostas para Pergunta 5
-(5, 'Um ano.', 'V'),
-(5, 'Dois anos.', 'F'),
-(5, 'Nenhum ano.', 'F'),
+(5, 'Um ano', 'V'),
+(5, 'Dois anos', 'F'),
+(5, 'Nenhum ano', 'F'),
 
 -- Respostas para Pergunta 6
-(6, '64.', 'V'),
-(6, '48.', 'F'),
-(6, '36.', 'F'),
+(6, '64', 'V'),
+(6, '48', 'F'),
+(6, '36', 'F'),
 
 -- Respostas para Pergunta 7
-(7, 'Pergunto ao guarda o que o outro diria.', 'V'),
-(7, 'Pergunto quem mente.', 'F'),
-(7, 'Testo ambas as portas.', 'F'),
+(7, 'Pergunto ao guarda o que o outro diria', 'V'),
+(7, 'Pergunto quem mente', 'F'),
+(7, 'Testo ambas as portas', 'F'),
 
 -- Respostas para Pergunta 8
-(8, 'Nove.', 'V'),
-(8, 'Oito.', 'F'),
-(8, 'Sete.', 'F'),
+(8, 'Nove', 'V'),
+(8, 'Oito', 'F'),
+(8, 'Sete', 'F'),
 
 -- Respostas para Pergunta 9
-(9, 'Cinco minutos.', 'V'),
-(9, 'Cem minutos.', 'F'),
-(9, 'Dez minutos.', 'F'),
+(9, 'Cinco minutos', 'V'),
+(9, 'Cem minutos', 'F'),
+(9, 'Dez minutos', 'F'),
 
 -- Respostas para Pergunta 10
-(10, 'O que vê dois chapéus iguais deduz sua cor.', 'V'),
-(10, 'Não há solução lógica.', 'F'),
-(10, 'A primeira pessoa sempre acerta.', 'F'),
+(10, 'O que vê dois chapéus iguais deduz sua cor', 'V'),
+(10, 'Não há solução lógica', 'F'),
+(10, 'A primeira pessoa sempre acerta', 'F'),
 
 -- Respostas para Pergunta 11
-(11, 'Branca.', 'V'),
-(11, 'Preta.', 'F'),
-(11, 'Depende do número inicial.', 'F'),
+(11, 'Branca', 'V'),
+(11, 'Preta', 'F'),
+(11, 'Depende do número inicial', 'F'),
 
 -- Respostas para Pergunta 12
-(12, 'Enche o de 5 litros e transfere para o de 3.', 'V'),
-(12, 'Divide igualmente entre eles.', 'F'),
-(12, 'Faz medições alternadas.', 'F'),
+(12, 'Enche o de 5 litros e transfere para o de 3', 'V'),
+(12, 'Divide igualmente entre eles', 'F'),
+(12, 'Faz medições alternadas', 'F'),
 
 -- Respostas para Pergunta 13
-(13, '12 anos.', 'V'),
-(13, '10 anos.', 'F'),
-(13, '14 anos.', 'F'),
+(13, '12 anos', 'V'),
+(13, '10 anos', 'F'),
+(13, '14 anos', 'F'),
 
 -- Respostas para Pergunta 14
-(14, '12x30x24x60.', 'F'),
-(14, '12.', 'V'),
-(14, '365.', 'F'),
+(14, '12x30x24x60', 'F'),
+(14, '12', 'V'),
+(14, '365', 'F'),
 
 -- Respostas para Pergunta 15
-(15, 'Cinco minutos.', 'V'),
-(15, '50 minutos.', 'F'),
-(15, '55 minutos.', 'F'),
+(15, 'Cinco minutos', 'V'),
+(15, '50 minutos', 'F'),
+(15, '55 minutos', 'F'),
 
 -- Respostas para Pergunta 16
-(16, '13.', 'V'),
-(16, '21.', 'F'),
-(16, '10.', 'F'),
+(16, '13', 'V'),
+(16, '21', 'F'),
+(16, '10', 'F'),
 
 -- Respostas para Pergunta 17
-(17, 'Segundo.', 'V'),
-(17, 'Primeiro.', 'F'),
-(17, 'Terceiro.', 'F'),
+(17, 'Segundo', 'V'),
+(17, 'Primeiro', 'F'),
+(17, 'Terceiro', 'F'),
 
 -- Respostas para Pergunta 18
-(18, '5.', 'V'),
-(18, '25.', 'F'),
-(18, '10.', 'F'),
+(18, '5', 'V'),
+(18, '25', 'F'),
+(18, '10', 'F'),
 
 -- Respostas para Pergunta 19
-(19, 'Galos não botam ovos.', 'V'),
-(19, 'Para o lado mais baixo.', 'F'),
-(19, 'Para o lado mais alto.', 'F'),
+(19, 'Galos não botam ovos', 'V'),
+(19, 'Para o lado mais baixo', 'F'),
+(19, 'Para o lado mais alto', 'F'),
 
 -- Respostas para Pergunta 20
-(20, 'Depende da densidade.', 'F'),
-(20, '1 quilograma.', 'F'),
-(20, '19,3 quilogramas.', 'V');
+(20, 'Depende da densidade', 'F'),
+(20, '1 quilograma', 'F'),
+(20, '19,3 quilogramas', 'V');
 
 DROP DATABASE logiclift;
