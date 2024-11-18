@@ -5,19 +5,10 @@
     font-family: "Inter", sans-serif;
 }
 
-
-:root {
-    --vermelho-forte: rgba(#FF0400);
-    --vermelho-fraco: rgba(#d64846);
-    --branca: rgba(#ffffff);
-    --cinza: rgba(#828282);
-    --cinza-escuro: rgba(#191919);
-}
-
 /* -------------header------------- */
 
 header {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }
@@ -25,7 +16,7 @@ header {
 .back-button {
     border: 1px solid rgb(0, 0, 0);
     font-size: 2vh;
-    background-color: #d64846;
+    background-color: #4A90E2;
     color: #ffffff;
     height: 3vh;
     width: 5vw;
@@ -52,7 +43,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #d64846;
+    background-color: #4A90E2;
     height: 88vh;
     width: 100vw;
 }
@@ -101,7 +92,7 @@ main {
 
 .level {
     color: #ffffff;
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 14vh;
     width: 7vw;
     font-size: 3vh;
@@ -116,7 +107,7 @@ main {
 }
 
 .task {
-    background-color: #404040;
+    background-color: #2C3E50;
     font-size: 2vh;
     color: #ffffff;
     height: 5vh;
@@ -128,7 +119,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #404040;
+    background-color: #2C3E50;
     font-size: 2vh;
     color: #ffffff;
     height: 5vh;
@@ -169,7 +160,7 @@ img {
 /* -------------footer------------- */
 
 footer {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }

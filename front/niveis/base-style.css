@@ -6,17 +6,9 @@
     font-family: "Inter", sans-serif;
 }
 
-:root {
-    --vermelho-forte: #FF0400;
-    --vermelho-fraco: #d64846;
-    --branca: #ffffff;
-    --cinza: #828282;
-    --cinza-escuro: #191919;
-}
-
 /* Header */
 header {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }
@@ -26,7 +18,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #d64846;
+    background-color: #4A90E2;
     height: 88vh;
     width: 100vw;
 }
@@ -70,7 +62,7 @@ main {
     padding: 0.5rem 1rem;
     font-size: 2vh;
     color: white;
-    background-color: #404040;
+    background-color: #2C3E50;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -90,7 +82,7 @@ main {
     padding: 0.75rem 2rem;
     font-size: 2vh;
     color: white;
-    background-color: #404040;
+    background-color: #2C3E50;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -106,7 +98,7 @@ main {
 
 /* Footer */
 footer {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }

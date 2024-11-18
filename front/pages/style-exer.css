@@ -5,19 +5,10 @@
     font-family: "Inter", sans-serif;
 }
 
-
-:root {
-    --vermelho-forte: rgba(#FF0400);
-    --vermelho-fraco: rgba(#d64846);
-    --branca: rgba(#ffffff);
-    --cinza: rgba(#828282);
-    --cinza-escuro: rgba(#191919);
-}
-
 /* -------------header------------- */
 
 header {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }
@@ -28,7 +19,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #d64846;
+    background-color: #4A90E2;
     height: 88vh;
     width: 100vw;
 }
@@ -70,7 +61,7 @@ main {
 /* ------------------------------ */
 
 .button {
-    background-color: #404040;
+    background-color: #2C3E50;
     font-size: 2vh;
     color: #ffffff;
     height: 7vh;
@@ -106,7 +97,7 @@ main {
     padding: 0.75rem 1.5rem;
     font-size: 1.2rem;
     color: white;
-    background-color: #404040;
+    background-color: #2C3E50;
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -125,7 +116,7 @@ main {
 /* -------------footer------------- */
 
 footer {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }

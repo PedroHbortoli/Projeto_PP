@@ -7,7 +7,7 @@
 /* -------------header------------- */
 
 header {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }
@@ -15,7 +15,7 @@ header {
 .back-button{
     border: 1px solid rgb(0, 0, 0);
     font-size: 2vh;
-    background-color:#d64846;
+    background-color:#4A90E2;
     color: #ffffff;
     height: 3vh;
     width: 5vw;
@@ -29,7 +29,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #d64846;
+    background-color: #4A90E2;
     height: 88vh;
     width: 100vw;
 }
@@ -45,7 +45,7 @@ main {
 }
 
 .card{
-    background-color: rgba(183, 164, 164, 0.514);
+    background-color: #3b5670a4;
     height: 70vh;
     width: 40vw;
     border-radius: 20px;
@@ -60,6 +60,7 @@ main {
     height: 20vh;
     width: 10vw;
     margin-left: 1vw;
+    border: solid #3b5670a4 1vh;
 }
 
 .lapis{
@@ -126,7 +127,7 @@ main {
 }
 
 .updateButton{
-    background-color: #d64846;
+    background-color: #4A90E2;
     border: 1px solid black;
     border-radius: 100px;
     height: 6vh;
@@ -138,7 +139,7 @@ main {
 .sectionSix #saveChanges {
     border: 1px solid rgb(0, 0, 0);
     font-size: 2vh;
-    background-color:#d64846;
+    background-color:#4A90E2;
     color: #ffffff;
     height: 4vh;
     width: 10vw;
@@ -150,7 +151,7 @@ main {
 /* -------------footer------------- */
 
 footer {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }

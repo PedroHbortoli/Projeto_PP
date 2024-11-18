@@ -5,19 +5,10 @@
     font-family: "Inter", sans-serif;
 }
 
-
-:root {
-    --vermelho-forte: rgba(#FF0400);
-    --vermelho-fraco: rgba(#d64846);
-    --branca: rgba(#ffffff);
-    --cinza: rgba(#828282);
-    --cinza-escuro: rgba(#191919);
-}
-
 /* -------------header------------- */
 
 header {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }
@@ -28,7 +19,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #d64846;
+    background-color: #4A90E2;
     height: 88vh;
     width: 100vw;
 }
@@ -67,7 +58,7 @@ main {
 }
 
 .button {
-    background-color: #404040;
+    background-color: #2C3E50;
     font-size: 2vh;
     color: #ffffff;
     height: 7vh;
@@ -78,7 +69,7 @@ main {
 }
 
 .form-group input{
-    background-color: #404040;
+    background-color: #2C3E50;
     font-size: 2vh;
     color: #ffffff;
     height: 6vh;
@@ -94,7 +85,7 @@ main {
 }
 
 .submit-button{
-    background-color: #404040;
+    background-color: #2C3E50;
     font-size: 2vh;
     color: #ffffff;
     height: 7vh;
@@ -119,7 +110,7 @@ main {
 /* -------------footer------------- */
 
 footer {
-    background-color: #404040;
+    background-color: #2C3E50;
     height: 6vh;
     width: 100vw;
 }
